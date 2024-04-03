@@ -2,7 +2,7 @@ spring:
   application:
     name: api
   datasource:
-    url: jdbc:mysql://127.0.0.1:3308/userdb
+    url: jdbc:mysql://localhost:3306/userdb
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -11,6 +11,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
         jdbc:
           lob:
             non_contextual_creation: true
@@ -20,6 +21,5 @@ logging:
   level:
     org:
       hibernate:
-        type:
-          descriptor:
-            sql: trace
+        SQL: debug
+        type: trace

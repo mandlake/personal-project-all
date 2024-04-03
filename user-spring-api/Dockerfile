@@ -1,7 +1,10 @@
+FROM gradle:8.6-jdk17-alpine AS builder
+COPY --chown=gradle:gradle . /gradle/
+WORKDIR /gradle:8.6
+
 FROM openjdk:17-alpine
-LABEL description="rod"
-VOLUME /tmp
-ARG JAR_FILE=./build/*.jar
-ADD ${JAR_FILE} app.jar
+RUN mkdir /app
+COPY --from=builder /gradle/build/libs/*.jar /app/app.jar
+ARG PROFILE
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
