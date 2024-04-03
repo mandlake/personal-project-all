@@ -8,9 +8,19 @@ services:
       - ~/docker/mysql/soccer/var/lib/mysql:/var/lib/mysql
       - ~/docker/mysql/soccer/var/log/mysql:/var/log/mysql
     environment:
-      - MYSQL_DATABASE=userdb
+      - MYSQL_DATABASE=soccerdb
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_ROOT_HOST=%
     command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
     ports:
-      - 3307:3306
+      - "3307:3306"
+  application:
+    build: .
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3307/soccerdb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8081:8080"
+    depends_on:
+      - database

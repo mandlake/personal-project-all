@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString(exclude = {"id"})
+@Table(name = "user")
 public class User {
 
     @Id

@@ -9,18 +9,28 @@ services:
       - ~/docker/mysql/user/var/log/mysql:/var/log/mysql
     environment:
       - MYSQL_DATABASE=userdb
+      - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_ROOT_HOST=%
     command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    restart: always
     ports:
       - "3306:3306"
+    networks:
+      - user_env
   application:
     build: .
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/userdb
+      SPRING_DATASOURCE_URL: jdbc:mysql://user-container:3306/userdb
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     ports:
       - "8080:8080"
     depends_on:
       - database
+    networks:
+      - user_env
+
+networks:
+  user_env:
+    driver: bridge
