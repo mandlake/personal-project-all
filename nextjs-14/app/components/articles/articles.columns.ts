@@ -5,6 +5,7 @@ export default function ArticleColumns(prop: IArticle): GridColDef[] {
     {
       flex: 0.04,
       minWidth: 30,
+      width: 150,
       sortable: false,
       field: "id",
       headerName: "ID",
@@ -12,6 +13,7 @@ export default function ArticleColumns(prop: IArticle): GridColDef[] {
     {
       flex: 0.04,
       minWidth: 30,
+      width: 150,
       sortable: false,
       field: "title",
       headerName: "Title",
@@ -19,6 +21,7 @@ export default function ArticleColumns(prop: IArticle): GridColDef[] {
     {
       flex: 0.04,
       minWidth: 30,
+      width: 150,
       sortable: false,
       field: "writer",
       headerName: "Writer",
@@ -26,6 +29,7 @@ export default function ArticleColumns(prop: IArticle): GridColDef[] {
     {
       flex: 0.04,
       minWidth: 30,
+      width: 150,
       sortable: false,
       field: "registerDate",
       headerName: "RegisterDate",

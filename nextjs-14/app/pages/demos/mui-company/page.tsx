@@ -3,8 +3,8 @@
 import { Box } from "@mui/material";
 import "./article.css";
 import { DataGrid } from "@mui/x-data-grid";
-import MuiCompanyColumns from "@/app/components/columns/mui-company-columns";
-import MuiCompanyRows from "@/app/components/rows/mui-company-rows";
+import MuiCompanyColumns from "@/app/components/demos/mui-company-columns";
+import MuiCompanyRows from "@/app/components/demos/mui-company-rows";
 import { NextPage } from "next";
 
 const MuiCompaniesPage: NextPage = () => {

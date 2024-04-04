@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllArticles } from "@/redux/features/article-feature/article.slice";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import ArticleColumns from "@/app/components/articles.components/articles.columns";
-import ArticleRows from "@/app/components/articles.components/articles.rows";
+import ArticleColumns from "@/app/components/articles/articles.columns";
+import ArticleRows from "@/app/components/articles/articles.rows";
 
 const ArticlesPage: NextPage = ({ data }: any) => {
   const dispatch = useDispatch();

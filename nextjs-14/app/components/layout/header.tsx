@@ -22,7 +22,7 @@ const pageHref = [
   `${PG.USER}/login`,
   `${PG.DEMO}/redux-counter`,
   `${PG.BOARD}/articles`,
-  `${PG.USER}`,
+  `${PG.USER}/list`,
 ];
 
 function Header() {

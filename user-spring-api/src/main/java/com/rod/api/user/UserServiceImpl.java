@@ -1,6 +1,6 @@
 package com.rod.api.user;
 
-import com.rod.api.common.component.Messenger;
+import com.rod.api.common.component.MessengerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
     @Override
-    public Messenger save(User user) {
+    public MessengerVo save(User user) {
         return null;
     }
 

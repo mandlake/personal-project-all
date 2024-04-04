@@ -1,7 +1,7 @@
 package com.rod.api.article;
 
 
-import com.rod.api.common.component.Messenger;
+import com.rod.api.common.component.MessengerVo;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,12 +14,10 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ArticleServiceImpl implements ArticleService {
-
     private final ArticleRepository repository;
-
     @Override
-    public Messenger save(Article t) {
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public MessengerVo save(ArticleDto dto) {
+        return null;
     }
 
     @Override
@@ -28,34 +26,35 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> findAll() throws SQLException {
-        return repository.findAll();
+    public String delete(ArticleDto dto) {
+        return null;
     }
 
     @Override
-    public Optional<Article> findById(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public List<ArticleDto> findAll() throws SQLException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public String count() {
-        throw new UnsupportedOperationException("Unimplemented method 'count'");
+    public Optional<ArticleDto> findById(Long id) {
+        Article ent = repository.findById(id).get();
+        return entityToDto(ent);
+
     }
 
     @Override
-    public Optional<Article> getOne(String id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getOne'");
+    public String count() throws SQLException {
+        return null;
     }
 
     @Override
-    public String delete(Article t) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    public Optional<ArticleDto> getOne(String id) {
+        return Optional.empty();
     }
 
     @Override
     public Boolean existsById(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'existsById'");
+        return null;
     }
-
-
 }

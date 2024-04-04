@@ -1,7 +1,7 @@
 package com.rod.api.board;
 
 import com.rod.api.article.Article;
-import com.rod.api.common.component.Messenger;
+import com.rod.api.common.component.MessengerVo;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class BoardServiceImpl implements BoardService{
     @Override
-    public Messenger save(Article article) {
+    public MessengerVo save(Article article) {
         return null;
     }
 
