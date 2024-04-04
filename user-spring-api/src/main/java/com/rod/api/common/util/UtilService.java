@@ -1,4 +1,4 @@
-package com.rod.api.common;
+package com.rod.api.common.util;
 
 public interface UtilService {
     int createRandomInteger(int start, int gapBetweenStartAndEnd);

@@ -1,6 +1,7 @@
 package com.rod.api.article;
 
-import com.rod.api.border.Board;
+import com.rod.api.board.Board;
+import com.rod.api.common.BaseEntity;
 import com.rod.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +11,7 @@ import lombok.*;
 @Getter
 @ToString(exclude = {"id", "user"})
 @Table(name = "article")
-public class Article {
+public class Article extends BaseEntity {
 
     @Id
     @Column(name="id", nullable = false)
@@ -34,15 +35,11 @@ public class Article {
     @Column(name = "writer")
     private String writer;
 
-    @Column(name = "date")
-    private String registerDate;
-
     @Builder(builderMethodName = "builder")
-    public Article(Long id, String title, String content, String registerDate) {
+    public Article(Long id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.writer = user.getName();
-        this.registerDate = registerDate;
     }
 }

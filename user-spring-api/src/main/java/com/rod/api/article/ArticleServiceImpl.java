@@ -1,8 +1,7 @@
 package com.rod.api.article;
 
 
-import com.rod.api.common.AbstractService;
-import com.rod.api.messanger.Messenger;
+import com.rod.api.common.component.Messenger;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,13 +13,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ArticleServiceImpl extends AbstractService<Article> {
+public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleRepository repository;
 
     @Override
     public Messenger save(Article t) {
         throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
+
+    @Override
+    public String insertMany() {
+        return null;
     }
 
     @Override
@@ -46,11 +50,6 @@ public class ArticleServiceImpl extends AbstractService<Article> {
     @Override
     public String delete(Article t) {
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
-    }
-
-    @Override
-    public String deleteAll() {
-        return null;
     }
 
     @Override

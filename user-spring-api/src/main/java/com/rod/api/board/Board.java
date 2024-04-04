@@ -1,6 +1,7 @@
-package com.rod.api.border;
+package com.rod.api.board;
 
 import com.rod.api.article.Article;
+import com.rod.api.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Getter
 @ToString(exclude = {"id"})
 @Table(name = "board")
-public class Board {
+public class Board extends BaseEntity {
 
     @Id
     @Column(name="id", nullable = false)

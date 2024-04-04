@@ -28,8 +28,6 @@ const JoinPage: NextPage = () => {
   const phone = useInput("");
   const address = useInput("");
   const job = useInput("");
-  const height = useInput("");
-  const weight = useInput("");
 
   const url = `${API.SERVER}/api/join`;
   const data = {
@@ -39,8 +37,6 @@ const JoinPage: NextPage = () => {
     phone: phone.value,
     address: address.value,
     job: job.value,
-    height: height.value,
-    weight: weight.value,
   };
 
   const handleCheckboxChange = () => {};
@@ -133,28 +129,6 @@ const JoinPage: NextPage = () => {
           placeholder="Enter Job"
           name="job"
           onChange={job.onChange}
-          required
-        />
-
-        <label htmlFor="height">
-          <b>Height</b>
-        </label>
-        <input
-          type="number"
-          placeholder="Enter Height"
-          name="height"
-          onChange={height.onChange}
-          required
-        />
-
-        <label htmlFor="weight">
-          <b>Weight</b>
-        </label>
-        <input
-          type="number"
-          placeholder="Enter Weight"
-          name="weight"
-          onChange={weight.onChange}
           required
         />
 

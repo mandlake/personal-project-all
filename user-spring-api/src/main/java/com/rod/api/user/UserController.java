@@ -1,13 +1,13 @@
 package com.rod.api.user;
 
-import com.rod.api.messanger.Messenger;
+import com.rod.api.common.component.Messenger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.util.*;
 
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
@@ -39,8 +39,6 @@ public class UserController {
                 .phoneNumber((String) map.get("phone"))
                 .address((String) map.get("address"))
                 .job((String) map.get("job"))
-                .height(Double.parseDouble((String) map.get("height")))
-                .weight(Double.parseDouble((String) map.get("weight")))
                 .build());
         System.out.println(respMap);
         respMap.put("message", Messenger.SUCCESS);

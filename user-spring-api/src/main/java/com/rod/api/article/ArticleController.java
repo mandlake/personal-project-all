@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rod.api.messanger.Messenger;
+import com.rod.api.common.component.Messenger;
 
 import lombok.RequiredArgsConstructor;
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequiredArgsConstructor
 public class ArticleController {
@@ -27,7 +27,7 @@ public class ArticleController {
             map.put("message", Messenger.FAIL);
         } else {
             map.put("message", Messenger.SUCCESS);
-            System.out.println("리스트 사이즈 : "+list.size());
+            System.out.println("리스트 사이즈 : " + list.size());
         }
         map.put("result",list);
         System.out.println(map.get("result"));

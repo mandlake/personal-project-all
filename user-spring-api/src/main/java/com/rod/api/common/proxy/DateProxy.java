@@ -1,4 +1,4 @@
-package com.rod.api.proxy;
+package com.rod.api.common.proxy;
 
 /**
  *  =========== Date Proxy ===========

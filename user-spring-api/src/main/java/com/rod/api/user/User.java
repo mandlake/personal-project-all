@@ -1,6 +1,7 @@
 package com.rod.api.user;
 
 import com.rod.api.article.Article;
+import com.rod.api.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 @ToString(exclude = {"id"})
 @Table(name = "user")
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @Column(name="id", nullable = false)
@@ -37,20 +38,13 @@ public class User {
     @Column(name = "job")
     private String job;
 
-    @Column(name = "height")
-    private double height;
-
-    @Column(name = "weight")
-    private double weight;
-
     @OneToMany(mappedBy = "writer")
     private List<Article> articles;
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,
                 String name, String phoneNumber,
-                String address, String job,
-                double height, double weight) {
+                String address, String job) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -58,7 +52,5 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;
-        this.height = height;
-        this.weight = weight;
     }
 }

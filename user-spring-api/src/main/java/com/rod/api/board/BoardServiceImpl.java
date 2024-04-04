@@ -1,19 +1,15 @@
-package com.rod.api.user;
+package com.rod.api.board;
 
+import com.rod.api.article.Article;
 import com.rod.api.common.component.Messenger;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-@Service
-@RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
 
-    private final UserRepository repository;
+public class BoardServiceImpl implements BoardService{
     @Override
-    public Messenger save(User user) {
+    public Messenger save(Article article) {
         return null;
     }
 
@@ -23,12 +19,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() throws SQLException {
-        return repository.findAll();
+    public String delete(Article article) {
+        return null;
     }
 
     @Override
-    public Optional<User> findById(Long id) {
+    public List<Article> findAll() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Optional<Article> findById(Long id) {
         return Optional.empty();
     }
 
@@ -38,13 +39,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getOne(String id) {
+    public Optional<Article> getOne(String id) {
         return Optional.empty();
-    }
-
-    @Override
-    public String delete(User user) {
-        return null;
     }
 
     @Override
