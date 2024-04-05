@@ -6,8 +6,10 @@ import com.rod.api.user.model.User;
 import com.rod.api.user.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +31,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> findAll(PageRequestVo vo) {
-        // repository.findAll(vo);
-        return null;
+        List<UserDto> userDtoList = new ArrayList<>();
+        userDtoList.add((UserDto) repository.findAll((Pageable) vo));
+        return userDtoList;
     }
 
     @Override

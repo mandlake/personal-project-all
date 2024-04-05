@@ -29,14 +29,16 @@ const JoinPage: NextPage = () => {
   const address = useInput("");
   const job = useInput("");
 
-  const url = `${API.SERVER}/api/join`;
+  const url = `${API.SERVER}/users`;
   const data = {
-    id: id.value,
-    pw: pw.value,
-    name: name.value,
-    phone: phone.value,
-    address: address.value,
-    job: job.value,
+    param: {
+      username: id.value,
+      password: pw.value,
+      name: name.value,
+      phoneNumber: phone.value,
+      address: address.value,
+      job: job.value,
+    },
   };
 
   const handleCheckboxChange = () => {};

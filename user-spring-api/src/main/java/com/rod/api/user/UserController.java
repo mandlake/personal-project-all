@@ -1,6 +1,7 @@
 package com.rod.api.user;
 
 import com.rod.api.common.component.MessengerVo;
+import com.rod.api.common.component.PageRequestVo;
 import com.rod.api.user.model.UserDto;
 import com.rod.api.user.service.UserServiceImpl;
 import com.rod.api.user.model.User;
@@ -28,6 +29,8 @@ public class UserController {
     @PostMapping(path = "")
     public ResponseEntity<MessengerVo> join(@RequestBody Map<String, UserDto> param) {
         log.info("입력받은 정보 : {}", param);
+        UserDto userDto = param.get("param");
+        service.save(userDto);
         return ResponseEntity.ok(new MessengerVo());
     }
 
@@ -36,15 +39,7 @@ public class UserController {
             @ApiResponse(responseCode = "404", description = "Customer not found")})
     @PostMapping(path = "/login")
     public ResponseEntity<MessengerVo> id(@RequestBody Map<String, ?> map) {
-        Map<String, String> respMap = new HashMap<>();
-//        User optUser = service.findByUsername((String) map.get("id")).orElse(null);
-//        if(optUser == null) {
-//           respMap.put("message", "MessengerVo.FAIL");
-//        } else if(!optUser.getPassword().equals(map.get("pw"))) {
-//           respMap.put("message", "MessengerVo.WRONG_PASSWORD");
-//        } else {
-//           respMap.put("message", "MessengerVo.SUCCESS");
-//        }
+        service.findUsersByName((String) map.get("id"));
 
         return ResponseEntity.ok(new MessengerVo());
     }
@@ -53,7 +48,8 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Invalid ID supplied"),
             @ApiResponse(responseCode = "404", description = "Customer not found")})
     @GetMapping(path = "/api/all-users")
-    public ResponseEntity<List<UserDto>> findAll(Pageable pageable) throws SQLException {
+    public ResponseEntity<List<UserDto>> findAll(Pageable pageable) {
+        service.findAll((PageRequestVo) pageable);
         return ResponseEntity.ok(new ArrayList<>());
     }
 

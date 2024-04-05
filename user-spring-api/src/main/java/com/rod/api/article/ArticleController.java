@@ -22,7 +22,7 @@ public class ArticleController {
     private final ArticleServiceImpl service;
 
     @GetMapping("")
-    public ResponseEntity<MessengerVo> findAll(PageRequestVo vo) throws SQLException {
+    public ResponseEntity<MessengerVo> findAll(PageRequestVo vo) {
         Map<String, Object> map = new HashMap<>();
 
         return ResponseEntity.ok(new MessengerVo());
