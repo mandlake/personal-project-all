@@ -1,5 +1,6 @@
-package com.rod.api.board.controller;
+package com.rod.api.board;
 
+import com.rod.api.board.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,4 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class BoardController {
+    private final BoardServiceImpl service;
 }

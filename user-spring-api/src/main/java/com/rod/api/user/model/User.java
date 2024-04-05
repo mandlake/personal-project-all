@@ -4,9 +4,11 @@ import com.rod.api.article.model.Article;
 import com.rod.api.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
 
+@Log4j2
 @Entity(name="users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -38,7 +40,7 @@ public class User extends BaseEntity {
     @Column(name = "job")
     private String job;
 
-    @OneToMany(mappedBy = "writer")
+    @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
     private List<Article> articles;
 
     @Builder(builderMethodName = "builder")

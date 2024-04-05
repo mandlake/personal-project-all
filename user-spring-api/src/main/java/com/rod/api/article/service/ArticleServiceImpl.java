@@ -1,63 +1,47 @@
 package com.rod.api.article.service;
 
-
-import com.rod.api.article.controller.ArticleRepository;
-import com.rod.api.article.model.Article;
-import com.rod.api.article.model.ArticleDto;
-import com.rod.api.common.component.MessengerVo;
-
-import lombok.RequiredArgsConstructor;
-
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import com.rod.api.article.ArticleRepository;
+import com.rod.api.article.model.Article;
+import com.rod.api.article.model.ArticleDto;
+import com.rod.api.common.component.PageRequestVo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ArticleServiceImpl implements ArticleService {
+public class ArticleServiceImpl implements ArticleService{
     private final ArticleRepository repository;
     @Override
-    public MessengerVo save(ArticleDto dto) {
-        return null;
+    public ArticleDto save(ArticleDto dto) {
+        return entityToDto(Optional.of(repository.save(dtoToEntity(dto))));
     }
 
     @Override
-    public String insertMany() {
-        return null;
+    public void deleteById(Long id) {
+        repository.deleteById(id);
     }
 
     @Override
-    public String delete(ArticleDto dto) {
+    public List<ArticleDto> findAll(PageRequestVo vo) {
+        // repository.findAll(vo);
         return null;
-    }
-
-    @Override
-    public List<ArticleDto> findAll() throws SQLException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
     public Optional<ArticleDto> findById(Long id) {
-        Article ent = repository.findById(id).get();
-        return entityToDto(ent);
-
+        return Optional.of(entityToDto(repository.findById(id)));
     }
 
     @Override
-    public String count() throws SQLException {
-        return null;
+    public long count() {
+        return repository.count();
     }
 
     @Override
-    public Optional<ArticleDto> getOne(String id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Boolean existsById(Long id) {
-        return null;
+    public boolean existsById(Long id) {
+        return repository.existsById(id);
     }
 }

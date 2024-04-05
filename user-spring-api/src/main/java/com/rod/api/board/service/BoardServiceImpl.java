@@ -1,51 +1,54 @@
 package com.rod.api.board.service;
 
-import com.rod.api.article.model.Article;
-import com.rod.api.board.service.BoardService;
-import com.rod.api.common.component.MessengerVo;
 
-import java.sql.SQLException;
+import com.rod.api.board.BoardRepository;
+import com.rod.api.board.model.BoardDto;
+import com.rod.api.common.component.PageRequestVo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
-public class BoardServiceImpl implements BoardService {
+@Service
+@RequiredArgsConstructor
+public class BoardServiceImpl implements BoardService{
+
+    private final BoardRepository repository;
+
     @Override
-    public MessengerVo save(Article article) {
+    public BoardDto save(BoardDto t) {
+        return entityToDto(Optional.of(repository.save(dtoToEntity(t))));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public List<BoardDto> findAll(PageRequestVo vo) {
+        //return repository.findAll(vo);
         return null;
     }
 
     @Override
-    public String insertMany() {
-        return null;
+    public Optional<BoardDto> findById(Long id) {
+        return Optional.of(entityToDto(repository.findById(id)));
     }
 
     @Override
-    public String delete(Article article) {
-        return null;
+    public long count() {
+        return repository.count();
     }
 
     @Override
-    public List<Article> findAll() throws SQLException {
-        return null;
+    public boolean existsById(Long id) {
+        return repository.existsById(id);
     }
 
-    @Override
-    public Optional<Article> findById(Long id) {
-        return Optional.empty();
-    }
 
-    @Override
-    public String count() throws SQLException {
-        return null;
-    }
 
-    @Override
-    public Optional<Article> getOne(String id) {
-        return Optional.empty();
-    }
 
-    @Override
-    public Boolean existsById(Long id) {
-        return null;
-    }
+
 }

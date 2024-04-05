@@ -1,4 +1,4 @@
-package com.rod.api.article.controller;
+package com.rod.api.article;
 
 import com.rod.api.article.model.Article;
 import org.springframework.data.jpa.repository.JpaRepository;

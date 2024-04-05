@@ -11,8 +11,5 @@ export default function ArticleRows() {
     registerDate: article.registerDate,
   }));
 
-  // 기본 행 및 추가 정보 행 반환
-  return [
-    ...(additionalRows || []), // 추가 정보 행 추가
-  ];
+  return [...(additionalRows || [])];
 }

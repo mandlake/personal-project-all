@@ -5,12 +5,14 @@ import com.rod.api.common.BaseEntity;
 import com.rod.api.user.model.User;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.extern.log4j.Log4j2;
 
-@Entity(name = "articles")
+@Log4j2
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Entity(name = "articles")
 @Getter
 @ToString(exclude = {"id", "user"})
-@Table(name = "articles")
 public class Article extends BaseEntity {
 
     @Id
@@ -24,11 +26,11 @@ public class Article extends BaseEntity {
     @Column(name = "content")
     private String content;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id")
     private Board board;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
