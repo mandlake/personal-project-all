@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @Data
 @Builder
-@Log4j
 public class ArticleDto {
     private Long id;
     private String title;

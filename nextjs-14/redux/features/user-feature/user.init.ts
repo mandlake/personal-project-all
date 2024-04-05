@@ -6,7 +6,5 @@ export const initialState: IUser = {
   phone_number: "",
   address: "",
   job: "",
-  height: 0,
-  weight: 0,
   array: [],
 };

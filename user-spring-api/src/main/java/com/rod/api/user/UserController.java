@@ -1,6 +1,5 @@
 package com.rod.api.user;
 
-import com.rod.api.common.component.MessengerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,22 +15,22 @@ public class UserController {
 
     @PostMapping(path = "/api/login")
     public Map<String, ?> id(@RequestBody Map<String, ?> map) {
-        Map<String, MessengerVo> respMap = new HashMap<>();
+        Map<String, String> respMap = new HashMap<>();
         User optUser = repository.findByUsername((String) map.get("id")).orElse(null);
         if(optUser == null) {
-           // respMap.put("message", MessengerVo.FAIL);
+           respMap.put("message", "MessengerVo.FAIL");
         } else if(!optUser.getPassword().equals(map.get("pw"))) {
-           // respMap.put("message", MessengerVo.WRONG_PASSWORD);
+           respMap.put("message", "MessengerVo.WRONG_PASSWORD");
         } else {
-           // respMap.put("message", MessengerVo.SUCCESS);
+           respMap.put("message", "MessengerVo.SUCCESS");
         }
 
         return respMap;
     }
 
-    @PostMapping(path = "/api/join")
+    @PostMapping("/api/join")
     public Map<String, ?> join(@RequestBody Map<String, ?> map) {
-        Map<String, MessengerVo> respMap = new HashMap<>();
+        Map<String, String> respMap = new HashMap<>();
         repository.save(User.builder()
                 .username((String) map.get("id"))
                 .password((String) map.get("pw"))
@@ -41,19 +40,19 @@ public class UserController {
                 .job((String) map.get("job"))
                 .build());
         System.out.println(respMap);
-       // respMap.put("message", MessengerVo.SUCCESS);
+       respMap.put("message", "success");
         return respMap;
     }
 
     @GetMapping(path = "/api/all-users")
-    public Map<String, Object> findAll() throws SQLException {
+    public Map<String, ?> findAll() throws SQLException {
         Map<String, Object> map = new HashMap<>();
 
         List<User> list = service.findAll();
         if(list.isEmpty()) {
-           // map.put("message", MessengerVo.FAIL);
+            map.put("message", "fail");
         } else {
-           // map.put("message", MessengerVo.SUCCESS);
+            map.put("message", "success");
             System.out.println("리스트 사이즈 : "+list.size());
         }
         map.put("result", list);

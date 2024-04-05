@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-@Log4j
 public class BoardDto {
     private Long id;
     private String boardName;

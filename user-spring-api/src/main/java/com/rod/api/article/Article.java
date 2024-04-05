@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id", "user"})
-@Table(name = "article")
+@Table(name = "articles")
 public class Article extends BaseEntity {
 
     @Id

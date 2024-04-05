@@ -34,6 +34,7 @@ export const userSlice = createSlice({
 });
 
 export const getAllUsers = (state: any) => {
+  console.log(state.user.array.result);
   return state.user.array.result;
 };
 

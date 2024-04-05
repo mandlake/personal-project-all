@@ -1,6 +1,6 @@
 import { GridColDef } from "@mui/x-data-grid";
 
-export default function UserColumns(prop: IUser): GridColDef[] {
+export default function UserColumns(prop: UserColumns): GridColDef[] {
   return [
     {
       flex: 0.04,

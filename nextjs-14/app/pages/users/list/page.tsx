@@ -1,7 +1,7 @@
 "use client";
 
-import UserRows from "@/app/components/users/model/UserColimn";
 import UserColumns from "@/app/components/users/users.column";
+import UserRows from "@/app/components/users/users.rows";
 import { fetchAllUsers } from "@/redux/features/user-feature/user.service";
 import { getAllUsers } from "@/redux/features/user-feature/user.slice";
 import { Box } from "@mui/material";
@@ -19,13 +19,14 @@ const UserArticlesPages: NextPage = () => {
     console.log(allUsers);
   } else {
     console.log("allUsers is undefined");
+    console.log(allUsers);
   }
 
   useEffect(() => {
     dispatch(fetchAllUsers(1));
   }, []);
 
-  const columns = UserColumns({} as IUser);
+  const columns = UserColumns({} as UserColumns);
   const rows = UserRows();
 
   return (

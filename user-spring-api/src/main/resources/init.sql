@@ -25,3 +25,5 @@ CREATE TABLE boards (
                         board_name VARCHAR(255),
                         board_type VARCHAR(100)
 );
+
+CALL insertLoop1;

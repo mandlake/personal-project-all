@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString(exclude = {"id"})
-@Table(name = "user")
+@Table(name = "users")
 public class User extends BaseEntity {
 
     @Id

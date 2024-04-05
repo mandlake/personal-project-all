@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-@Log4j
 public class UserDto {
     private Long id;
     private String username;

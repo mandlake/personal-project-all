@@ -1,4 +1,4 @@
-interface IUser {
+interface UserColumns {
   id: number;
   username: string;
   password: string;
@@ -6,5 +6,4 @@ interface IUser {
   phone_number: string;
   address: string;
   job: string;
-  array: [];
 }

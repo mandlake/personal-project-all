@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
-@Table(name = "board")
+@Table(name = "boards")
 public class Board extends BaseEntity {
 
     @Id
