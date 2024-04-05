@@ -1,5 +1,7 @@
-package com.rod.api.article;
+package com.rod.api.article.service;
 
+import com.rod.api.article.model.Article;
+import com.rod.api.article.model.ArticleDto;
 import com.rod.api.common.command.CommandService;
 import com.rod.api.common.query.QueryService;
 

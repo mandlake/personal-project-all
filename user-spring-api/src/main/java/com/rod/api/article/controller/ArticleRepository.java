@@ -1,5 +1,6 @@
-package com.rod.api.article;
+package com.rod.api.article.controller;
 
+import com.rod.api.article.model.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

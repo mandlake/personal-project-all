@@ -1,5 +1,6 @@
-package com.rod.api.user;
+package com.rod.api.user.controller;
 
+import com.rod.api.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

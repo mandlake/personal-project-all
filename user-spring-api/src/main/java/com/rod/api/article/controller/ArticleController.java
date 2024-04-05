@@ -1,15 +1,15 @@
-package com.rod.api.article;
+package com.rod.api.article.controller;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.rod.api.article.model.Article;
+import com.rod.api.article.service.ArticleServiceImpl;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.rod.api.common.component.MessengerVo;
 
 import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins = "*", allowedHeaders = "*")

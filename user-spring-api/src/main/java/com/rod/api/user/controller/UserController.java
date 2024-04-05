@@ -1,5 +1,7 @@
-package com.rod.api.user;
+package com.rod.api.user.controller;
 
+import com.rod.api.user.service.UserServiceImpl;
+import com.rod.api.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

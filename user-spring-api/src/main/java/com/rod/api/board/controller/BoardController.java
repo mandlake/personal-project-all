@@ -1,4 +1,4 @@
-package com.rod.api.board;
+package com.rod.api.board.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;

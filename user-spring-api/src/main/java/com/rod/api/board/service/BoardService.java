@@ -1,13 +1,10 @@
-package com.rod.api.board;
+package com.rod.api.board.service;
 
-import com.rod.api.article.Article;
-import com.rod.api.article.ArticleDto;
+import com.rod.api.article.model.Article;
+import com.rod.api.article.model.ArticleDto;
 import com.rod.api.common.command.CommandService;
 import com.rod.api.common.query.QueryService;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public interface BoardService  extends CommandService<Article>, QueryService<Article> {
