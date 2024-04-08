@@ -3,24 +3,14 @@
 import UserColumns from "@/app/components/users/users.column";
 import UserRows from "@/app/components/users/users.rows";
 import { fetchAllUsers } from "@/redux/features/user-feature/user.service";
-import { getAllUsers } from "@/redux/features/user-feature/user.slice";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { NextPage } from "next";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const UserArticlesPages: NextPage = () => {
   const dispatch = useDispatch();
-  const allUsers: [] = useSelector(getAllUsers);
-
-  if (allUsers !== undefined) {
-    console.log("allUsers is defined");
-    console.log(allUsers);
-  } else {
-    console.log("allUsers is undefined");
-    console.log(allUsers);
-  }
 
   useEffect(() => {
     dispatch(fetchAllUsers(1));
