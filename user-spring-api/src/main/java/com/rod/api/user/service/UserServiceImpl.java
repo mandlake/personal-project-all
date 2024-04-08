@@ -1,12 +1,11 @@
 package com.rod.api.user.service;
 
-import com.rod.api.common.component.PageRequestVo;
+import com.rod.api.common.component.MessengerVo;
 import com.rod.api.user.UserRepository;
 import com.rod.api.user.model.User;
 import com.rod.api.user.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,25 +19,27 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repository;
 
     @Override
-    public UserDto save(UserDto dto) {
-        return entityToDto(Optional.of(repository.save(dtoToEntity(dto))));
+    public MessengerVo save(UserDto t) {
+        entityToDto(repository.save(dtoToEntity(t)));
+        return new MessengerVo();
     }
 
     @Override
-    public void deleteById(Long id) {
+    public MessengerVo deleteById(Long id) {
         repository.deleteById(id);
+        return new MessengerVo();
     }
 
     @Override
-    public List<UserDto> findAll(PageRequestVo vo) {
-        List<UserDto> userDtoList = new ArrayList<>();
-        userDtoList.add((UserDto) repository.findAll((Pageable) vo));
-        return userDtoList;
+    public List<UserDto> findAll() {
+        repository.findAll();
+        return new ArrayList<>();
     }
 
     @Override
     public Optional<UserDto> findById(Long id) {
-        return Optional.of(entityToDto(repository.findById(id)));
+        User user = repository.findById(id).get();
+        return Optional.of(entityToDto(user));
     }
 
     @Override
@@ -52,17 +53,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updatePassword(User user) {
-        return null;
+    public MessengerVo modify(UserDto user) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updatePassword'");
     }
 
     @Override
-    public List<?> findUsersByName(String name) {
-        return null;
+    public List<UserDto> findUsersByName(String name) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findUsersByName'");
     }
 
     @Override
-    public List<?> findUsersByJob(String job) {
-        return null;
+    public List<UserDto> findUsersByJob(String job) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findUsersByJob'");
+    }
+
+
+    @Override
+    public Optional<User> findUserByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
+    @Override
+    public MessengerVo login(UserDto param) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'login'");
     }
 }

@@ -3,10 +3,11 @@ package com.rod.api.board.service;
 
 import com.rod.api.board.BoardRepository;
 import com.rod.api.board.model.BoardDto;
-import com.rod.api.common.component.PageRequestVo;
+import com.rod.api.common.component.MessengerVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,19 +18,26 @@ public class BoardServiceImpl implements BoardService{
     private final BoardRepository repository;
 
     @Override
-    public BoardDto save(BoardDto t) {
-        return entityToDto(Optional.of(repository.save(dtoToEntity(t))));
+    public MessengerVo save(BoardDto t) {
+        entityToDto(Optional.of(repository.save(dtoToEntity(t))));
+        return new MessengerVo();
     }
 
     @Override
-    public void deleteById(Long id) {
+    public MessengerVo deleteById(Long id) {
         repository.deleteById(id);
+        return new MessengerVo();
     }
 
     @Override
-    public List<BoardDto> findAll(PageRequestVo vo) {
-        //return repository.findAll(vo);
+    public MessengerVo modify(BoardDto boardDto) {
         return null;
+    }
+
+    @Override
+    public List<BoardDto> findAll() {
+        repository.findAll();
+        return new ArrayList<>();
     }
 
     @Override
@@ -46,9 +54,4 @@ public class BoardServiceImpl implements BoardService{
     public boolean existsById(Long id) {
         return repository.existsById(id);
     }
-
-
-
-
-
 }

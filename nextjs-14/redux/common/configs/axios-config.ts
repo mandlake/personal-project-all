@@ -1,5 +1,5 @@
 import axios from "axios";
-import { env } from "process";
+import { API } from "../enums/API";
 
 export default function AxiosConfig() {
   return {
@@ -12,4 +12,4 @@ export default function AxiosConfig() {
   };
 }
 
-export const instance = axios.create({ baseURL: env.NEXT_PUBLIC_SERVER_URL });
+export const instance = axios.create({ baseURL: API.SERVER });

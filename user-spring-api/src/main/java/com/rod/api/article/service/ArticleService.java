@@ -17,7 +17,7 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
     }
 
     default ArticleDto entityToDto(Optional<Article> optional) {
-        Article a =optional.get();
+        Article a = optional.get();
         return ArticleDto.builder()
                 .id(a.getId())
                 .content(a.getContent())

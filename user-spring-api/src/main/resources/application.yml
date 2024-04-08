@@ -12,7 +12,7 @@ spring:
       mode: always
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -21,6 +21,7 @@ spring:
             non_contextual_creation: true
         format_sql: true
     show-sql: true
+    defer-datasource-initialization: true
 logging:
   level:
     org:
