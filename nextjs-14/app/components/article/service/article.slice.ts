@@ -34,7 +34,7 @@ export const articleSlice = createSlice({
 });
 
 export const getAllArticles = (state: any) => {
-  return state.article.array.result;
+  return state.article.array;
 };
 
 export const {} = articleSlice.actions;

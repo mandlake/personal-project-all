@@ -33,8 +33,9 @@ export const boardSlice = createSlice({
   },
 });
 
-export const getAllArticles = (state: any) => {
-  return state.article.array.result;
+export const getAllBoards = (state: any) => {
+  console.log(state.board.array);
+  return state.board.array;
 };
 
 export const {} = boardSlice.actions;

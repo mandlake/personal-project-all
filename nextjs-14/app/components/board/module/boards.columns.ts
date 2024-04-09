@@ -1,6 +1,7 @@
 import { GridColDef } from "@mui/x-data-grid";
+import { IBoard } from "../model/board";
 
-export default function ArticleColumns(prop: IArticle): GridColDef[] {
+export default function BoardColumns(prop: IBoard): GridColDef[] {
   return [
     {
       flex: 0.04,
@@ -15,16 +16,16 @@ export default function ArticleColumns(prop: IArticle): GridColDef[] {
       minWidth: 30,
       width: 150,
       sortable: false,
-      field: "title",
-      headerName: "Title",
+      field: "boardName",
+      headerName: "BoardName",
     },
     {
       flex: 0.04,
       minWidth: 30,
       width: 150,
       sortable: false,
-      field: "content",
-      headerName: "Content",
+      field: "boardType",
+      headerName: "BoardType",
     },
     {
       flex: 0.04,

@@ -3,36 +3,37 @@
 import { useEffect } from "react";
 import { NextPage } from "next";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllArticles } from "@/app/components/article/service/article.slice";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import ArticleColumns from "@/app/components/article/module/articles.columns";
-import ArticleRows from "@/app/components/article/module/articles.rows";
-import { findAllArticles } from "@/app/components/article/service/article.service";
+import { findAllBoards } from "@/app/components/board/service/board.service";
+import { getAllBoards } from "@/app/components/board/service/board.slice";
+import BoardColumns from "@/app/components/board/module/boards.columns";
+import { IBoard } from "@/app/components/board/model/board";
+import BoardRows from "@/app/components/board/module/boards.rows";
 
 const ArticlesPage: NextPage = ({ data }: any) => {
   const dispatch = useDispatch();
-  const allArticles: [] = useSelector(getAllArticles);
+  const allBoards: [] = useSelector(getAllBoards);
 
-  if (allArticles !== undefined) {
-    console.log("allArticles is defined");
-    console.log(allArticles);
+  if (allBoards !== undefined) {
+    console.log("allBoards is defined");
+    console.log(allBoards);
   } else {
-    console.log("allArticles is undefined");
+    console.log("allBoards is undefined");
   }
 
   useEffect(() => {
-    dispatch(findAllArticles(1));
+    dispatch(findAllBoards(1));
   }, []);
 
-  const columns = ArticleColumns({} as IArticle);
-  const rows = ArticleRows();
+  const columns = BoardColumns({} as IBoard);
+  const rows = BoardRows();
 
   return (
     <>
       <div className="flex flex-col justify-center items-center w-screen mt-10">
         <h1 className="font-semibold text-stone-600 text-[30px]">
-          게시글 목록
+          게시글 종류
         </h1>
 
         <Box sx={{ height: 400, width: "100%" }}>
@@ -46,7 +47,7 @@ const ArticlesPage: NextPage = ({ data }: any) => {
                 },
               },
             }}
-            pageSizeOptions={[5]}
+            pageSizeOptions={[5, 10, 20]}
             checkboxSelection
             disableRowSelectionOnClick
           />
