@@ -1,32 +1,141 @@
-INSERT INTO users(id, mod_date, register_date, address, job, name, password, phone_number, username)
-SELECT
-    id,
-    NOW() AS mod_date,
-    NOW() AS register_date,
-    CONCAT('Address ', id) AS address,
-    CONCAT('Job ', id) AS job,
-    CONCAT('Name ', id) AS name,
-    CONCAT('Password ', id) AS password,
-    CONCAT('Phone ', id) AS phone_number,
-    CONCAT('User ', id) AS username
-FROM
-    (SELECT 1 AS id UNION ALL
-     SELECT 2 UNION ALL
-     SELECT 3 UNION ALL
-     SELECT 4 UNION ALL
-     SELECT 5 UNION ALL
-     SELECT 6 UNION ALL
-     SELECT 7 UNION ALL
-     SELECT 8 UNION ALL
-     SELECT 9 UNION ALL
-     SELECT 10 UNION ALL
-     SELECT 11 UNION ALL
-     SELECT 12 UNION ALL
-     SELECT 13 UNION ALL
-     SELECT 14 UNION ALL
-     SELECT 15 UNION ALL
-     SELECT 16 UNION ALL
-     SELECT 17 UNION ALL
-     SELECT 18 UNION ALL
-     SELECT 19 UNION ALL
-     SELECT 20) AS id_list;
+INSERT INTO users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (1, NOW(), NOW(), 'alamblot0', 'sV1@95', 'amacnockater0@auda.org.au', 'Abbey', '106-906-8341', 'Graphic Designer');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (2, NOW(), NOW(),'ctarbin1', 'rI3|N|', 'ccorradengo1@cam.ac.uk', 'Crawford', '166-127-5418', 'Computer Systems Analyst II');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (3, NOW(), NOW(),'deisikowitch2', 'yV6>,5G', 'dsmallacombe2@github.io', 'Duffie', '618-965-4933', 'General Manager');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (4, NOW(), NOW(),'arichardes3', 'uA7''"(m', 'astanes3@guardian.co.uk', 'Angel', '204-230-2842', 'Cost Accountant');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (5, NOW(), NOW(),'sextill4', 'oQ2\<8{1e', 'soswal4@goo.ne.jp', 'Sonja', '512-524-5012', 'Help Desk Technician');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (6, NOW(), NOW(),'wtrask5', 'wF5%O,lW', 'wcromblehome5@woothemes.com', 'Winny', '880-986-6429', 'Business Systems Development Analyst');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (7, NOW(), NOW(),'aabramcik6', 'aX4{A', 'aondricek6@biblegateway.com', 'Aleece', '166-451-7931', 'Business Systems Development Analyst');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (8, NOW(), NOW(),'rkintzel7', 'lA7<,Y', 'rhannam7@yahoo.com', 'Richardo', '909-560-7606', 'Account Coordinator');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (9, NOW(), NOW(),'kfeldmark8', 'gO8>uM', 'ktagg8@cdc.gov', 'Kynthia', '113-640-2191', 'Desktop Support Technician');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (10, NOW(), NOW(),'afarland9', 'vJ5\X)G#{/', 'ajaimez9@oakley.com', 'Anya', '382-444-5810', 'Chemical Engineer');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (11, NOW(), NOW(),'reeftinga', 'tG0~2X', 'rgrievea@archive.org', 'Rosemary', '126-195-4086', 'Senior Cost Accountant');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (12, NOW(), NOW(),'dmethringhamb', 'pU6,UHX', 'dcullyb@ocn.ne.jp', 'Devlin', '896-121-3333', 'Assistant Media Planner');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (13, NOW(), NOW(),'ltomanc', 'jT9''#R', 'lbrearleyc@stumbleupon.com', 'Lionel', '262-231-2438', 'Software Test Engineer IV');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (14, NOW(), NOW(),'lkollasd', 'eZ0%bp=6LN', 'lseverwrightd@census.gov', 'Lucita', '817-406-3847', 'Registered Nurse');
+insert into users (id, mod_date, register_date,username, password, address, name, phone_number, job) values (15, NOW(), NOW(),'dpulvere', 'lI3@bJX', 'dgoblee@cargocollective.com', 'Doy', '637-462-4955', 'Statistician II');
+
+INSERT INTO boards (id, mod_date, register_date, board_name, board_type) VALUES (1, NOW(), NOW(), 'reviews', 'board');
+INSERT INTO boards (id, mod_date, register_date, board_name, board_type) VALUES (2, NOW(), NOW(), 'qna', 'board');
+
+INSERT INTO articles (id, mod_date, register_date, title, content, writer, board_id, user_id)
+VALUES
+    (1, NOW(), NOW(), 'Title 1', 'Content 1', 'Abbey', 1, 1),
+    (2, NOW(), NOW(), 'Title 2', 'Content 2', 'Crawford', 1, 2),
+    (3, NOW(), NOW(), 'Title 3', 'Content 3', 'Duffie', 1, 3),
+    (4, NOW(), NOW(), 'Title 4', 'Content 4', 'Angel', 1, 4),
+    (5, NOW(), NOW(), 'Title 5', 'Content 5', 'Sonja', 1, 5),
+    (6, NOW(), NOW(), 'Title 6', 'Content 6', 'Winny', 1, 6),
+    (7, NOW(), NOW(), 'Title 7', 'Content 7', 'Aleece', 1, 7),
+    (8, NOW(), NOW(), 'Title 8', 'Content 8', 'Richardo', 1, 8),
+    (9, NOW(), NOW(), 'Title 9', 'Content 9', 'Kynthia', 1, 9),
+    (10, NOW(), NOW(), 'Title 10', 'Content 10', 'Anya', 1, 10),
+    (11, NOW(), NOW(), 'Title 11', 'Content 11', 'Rosemary', 1, 11),
+    (12, NOW(), NOW(), 'Title 12', 'Content 12', 'Devlin', 1, 12),
+    (13, NOW(), NOW(), 'Title 13', 'Content 13', 'Lionel', 1, 13),
+    (14, NOW(), NOW(), 'Title 14', 'Content 14', 'Lucita', 1, 14),
+    (15, NOW(), NOW(), 'Title 15', 'Content 15', 'Doy', 1, 15),
+    (16, NOW(), NOW(), 'Title 16', 'Content 16', 'Abbey', 1, 1),
+    (17, NOW(), NOW(), 'Title 17', 'Content 17', 'Crawford', 1, 2),
+    (18, NOW(), NOW(), 'Title 18', 'Content 18', 'Duffie', 1, 3),
+    (19, NOW(), NOW(), 'Title 19', 'Content 19', 'Angel', 1, 4),
+    (20, NOW(), NOW(), 'Title 20', 'Content 20', 'Sonja', 1, 5),
+    (21, NOW(), NOW(), 'Title 21', 'Content 21', 'Winny', 1, 6),
+    (22, NOW(), NOW(), 'Title 22', 'Content 22', 'Aleece', 1, 7),
+    (23, NOW(), NOW(), 'Title 23', 'Content 23', 'Richardo', 1, 8),
+    (24, NOW(), NOW(), 'Title 24', 'Content 24', 'Kynthia', 1, 9),
+    (25, NOW(), NOW(), 'Title 25', 'Content 25', 'Anya', 1, 10),
+    (26, NOW(), NOW(), 'Title 26', 'Content 26', 'Rosemary', 1, 11),
+    (27, NOW(), NOW(), 'Title 27', 'Content 27', 'Devlin', 1, 12),
+    (28, NOW(), NOW(), 'Title 28', 'Content 28', 'Lionel', 1, 13),
+    (29, NOW(), NOW(), 'Title 29', 'Content 29', 'Lucita', 1, 14),
+    (30, NOW(), NOW(), 'Title 30', 'Content 30', 'Doy', 1, 15),
+    (31, NOW(), NOW(), 'Title 31', 'Content 31', 'Abbey', 1, 1),
+    (32, NOW(), NOW(), 'Title 32', 'Content 32', 'Crawford', 1, 2),
+    (33, NOW(), NOW(), 'Title 33', 'Content 33', 'Duffie', 1, 3),
+    (34, NOW(), NOW(), 'Title 34', 'Content 34', 'Angel', 1, 4),
+    (35, NOW(), NOW(), 'Title 35', 'Content 35', 'Sonja', 1, 5),
+    (36, NOW(), NOW(), 'Title 36', 'Content 36', 'Winny', 1, 6),
+    (37, NOW(), NOW(), 'Title 37', 'Content 37', 'Aleece', 1, 7),
+    (38, NOW(), NOW(), 'Title 38', 'Content 38', 'Richardo', 1, 8),
+    (39, NOW(), NOW(), 'Title 39', 'Content 39', 'Kynthia', 1, 9),
+    (40, NOW(), NOW(), 'Title 40', 'Content 40', 'Anya', 1, 10),
+    (41, NOW(), NOW(), 'Title 41', 'Content 41', 'Rosemary', 1, 11),
+    (42, NOW(), NOW(), 'Title 42', 'Content 42', 'Devlin', 1, 12),
+    (43, NOW(), NOW(), 'Title 43', 'Content 43', 'Lionel', 1, 13),
+    (44, NOW(), NOW(), 'Title 44', 'Content 44', 'Lucita', 1, 14),
+    (45, NOW(), NOW(), 'Title 45', 'Content 45', 'Doy', 1, 15),
+    (46, NOW(), NOW(), 'Title 46', 'Content 46', 'Abbey', 1, 1),
+    (47, NOW(), NOW(), 'Title 47', 'Content 47', 'Crawford', 1, 2),
+    (48, NOW(), NOW(), 'Title 48', 'Content 48', 'Duffie', 1, 3),
+    (49, NOW(), NOW(), 'Title 49', 'Content 49', 'Angel', 1, 4),
+    (50, NOW(), NOW(), 'Title 50', 'Content 50', 'Sonja', 1, 5),
+    (51, NOW(), NOW(), 'Title 51', 'Content 51', 'Winny', 1, 6),
+    (52, NOW(), NOW(), 'Title 52', 'Content 52', 'Aleece', 1, 7),
+    (53, NOW(), NOW(), 'Title 53', 'Content 53', 'Richardo', 1, 8),
+    (54, NOW(), NOW(), 'Title 54', 'Content 54', 'Kynthia', 1, 9),
+    (55, NOW(), NOW(), 'Title 55', 'Content 55', 'Anya', 1, 10),
+    (56, NOW(), NOW(), 'Title 56', 'Content 56', 'Rosemary', 1, 11),
+    (57, NOW(), NOW(), 'Title 57', 'Content 57', 'Devlin', 1, 12),
+    (58, NOW(), NOW(), 'Title 58', 'Content 58', 'Lionel', 1, 13),
+    (59, NOW(), NOW(), 'Title 59', 'Content 59', 'Lucita', 1, 14),
+    (60, NOW(), NOW(), 'Title 60', 'Content 60', 'Doy', 1, 15),
+    (61, NOW(), NOW(), 'Title 61', 'Content 61', 'Abbey', 1, 1),
+    (62, NOW(), NOW(), 'Title 62', 'Content 62', 'Crawford', 1, 2),
+    (63, NOW(), NOW(), 'Title 63', 'Content 63', 'Duffie', 1, 3),
+    (64, NOW(), NOW(), 'Title 64', 'Content 64', 'Angel', 1, 4),
+    (65, NOW(), NOW(), 'Title 65', 'Content 65', 'Sonja', 1, 5),
+    (66, NOW(), NOW(), 'Title 66', 'Content 66', 'Winny', 1, 6),
+    (67, NOW(), NOW(), 'Title 67', 'Content 67', 'Aleece', 1, 7),
+    (68, NOW(), NOW(), 'Title 68', 'Content 68', 'Richardo', 1, 8),
+    (69, NOW(), NOW(), 'Title 69', 'Content 69', 'Kynthia', 1, 9),
+    (70, NOW(), NOW(), 'Title 70', 'Content 70', 'Anya', 1, 10),
+    (71, NOW(), NOW(), 'Title 71', 'Content 71', 'Rosemary', 1, 11),
+    (72, NOW(), NOW(), 'Title 72', 'Content 72', 'Devlin', 1, 12),
+    (73, NOW(), NOW(), 'Title 73', 'Content 73', 'Lionel', 1, 13),
+    (74, NOW(), NOW(), 'Title 74', 'Content 74', 'Lucita', 1, 14),
+    (75, NOW(), NOW(), 'Title 75', 'Content 75', 'Doy', 1, 15),
+    (76, NOW(), NOW(), 'Title 76', 'Content 76', 'Abbey', 1, 1),
+    (77, NOW(), NOW(), 'Title 77', 'Content 77', 'Crawford', 1, 2),
+    (78, NOW(), NOW(), 'Title 78', 'Content 78', 'Duffie', 1, 3),
+    (79, NOW(), NOW(), 'Title 79', 'Content 79', 'Angel', 1, 4),
+    (80, NOW(), NOW(), 'Title 80', 'Content 80', 'Sonja', 1, 5),
+    (81, NOW(), NOW(), 'Title 81', 'Content 81', 'Winny', 1, 6),
+    (82, NOW(), NOW(), 'Title 82', 'Content 82', 'Aleece', 1, 7),
+    (83, NOW(), NOW(), 'Title 83', 'Content 83', 'Richardo', 1, 8),
+    (84, NOW(), NOW(), 'Title 84', 'Content 84', 'Kynthia', 1, 9),
+    (85, NOW(), NOW(), 'Title 85', 'Content 85', 'Anya', 1, 10),
+    (86, NOW(), NOW(), 'Title 86', 'Content 86', 'Rosemary', 1, 11),
+    (87, NOW(), NOW(), 'Title 87', 'Content 87', 'Devlin', 1, 12),
+    (88, NOW(), NOW(), 'Title 88', 'Content 88', 'Lionel', 1, 13),
+    (89, NOW(), NOW(), 'Title 89', 'Content 89', 'Lucita', 1, 14),
+    (90, NOW(), NOW(), 'Title 90', 'Content 90', 'Doy', 1, 15),
+    (91, NOW(), NOW(), 'Title 91', 'Content 91', 'Abbey', 1, 1),
+    (92, NOW(), NOW(), 'Title 92', 'Content 92', 'Crawford', 1, 2),
+    (93, NOW(), NOW(), 'Title 93', 'Content 93', 'Duffie', 1, 3),
+    (94, NOW(), NOW(), 'Title 94', 'Content 94', 'Angel', 1, 4),
+    (95, NOW(), NOW(), 'Title 95', 'Content 95', 'Sonja', 1, 5),
+    (96, NOW(), NOW(), 'Title 96', 'Content 96', 'Winny', 1, 6),
+    (97, NOW(), NOW(), 'Title 97', 'Content 97', 'Aleece', 1, 7),
+    (98, NOW(), NOW(), 'Title 98', 'Content 98', 'Richardo', 1, 8),
+    (99, NOW(), NOW(), 'Title 99', 'Content 99', 'Kynthia', 1, 9),
+    (100, NOW(), NOW(), 'Title 100', 'Content 100', 'Anya', 1, 10),
+    (101, NOW(), NOW(), 'Title 101', 'Content 101', 'Rosemary', 1, 11),
+    (102, NOW(), NOW(), 'Title 102', 'Content 102', 'Devlin', 1, 12),
+    (103, NOW(), NOW(), 'Title 103', 'Content 103', 'Lionel', 1, 13),
+    (104, NOW(), NOW(), 'Title 104', 'Content 104', 'Lucita', 1, 14),
+    (105, NOW(), NOW(), 'Title 105', 'Content 105', 'Doy', 1, 15),
+    (106, NOW(), NOW(), 'Title 106', 'Content 106', 'Abbey', 1, 1),
+    (107, NOW(), NOW(), 'Title 107', 'Content 107', 'Crawford', 1, 2),
+    (108, NOW(), NOW(), 'Title 108', 'Content 108', 'Duffie', 1, 3),
+    (109, NOW(), NOW(), 'Title 109', 'Content 109', 'Angel', 1, 4),
+    (110, NOW(), NOW(), 'Title 110', 'Content 110', 'Sonja', 1, 5),
+    (111, NOW(), NOW(), 'Title 111', 'Content 111', 'Winny', 1, 6),
+    (112, NOW(), NOW(), 'Title 112', 'Content 112', 'Aleece', 1, 7),
+    (113, NOW(), NOW(), 'Title 113', 'Content 113', 'Richardo', 1, 8),
+    (114, NOW(), NOW(), 'Title 114', 'Content 114', 'Kynthia', 1, 9),
+    (115, NOW(), NOW(), 'Title 115', 'Content 115', 'Anya', 1, 10),
+    (116, NOW(), NOW(), 'Title 116', 'Content 116', 'Rosemary', 1, 11),
+    (117, NOW(), NOW(), 'Title 117', 'Content 117', 'Devlin', 1, 12),
+    (118, NOW(), NOW(), 'Title 118', 'Content 118', 'Lionel', 1, 13),
+    (119, NOW(), NOW(), 'Title 119', 'Content 119', 'Lucita', 1, 14),
+    (120, NOW(), NOW(), 'Title 120', 'Content 120', 'Doy', 1, 15);
