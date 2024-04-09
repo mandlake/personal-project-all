@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialState } from "./user.init";
-import { fetchAllUsers } from "./user.service";
+import { initialState } from "./article.init";
+import { findAllArticles } from "./article.service";
 
 const status = {
   pending: "pending",
@@ -21,23 +21,22 @@ const handleRejected = (state: any) => {
   console.log(status.rejected);
 };
 
-export const userSlice = createSlice({
-  name: "users",
+export const articleSlice = createSlice({
+  name: "articles",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAllUsers.fulfilled, handleFulfilled)
-      .addCase(fetchAllUsers.pending, handlePending)
-      .addCase(fetchAllUsers.rejected, handleRejected);
+      .addCase(findAllArticles.fulfilled, handleFulfilled)
+      .addCase(findAllArticles.pending, handlePending)
+      .addCase(findAllArticles.rejected, handleRejected);
   },
 });
 
-export const getAllUsers = (state: any) => {
-  console.log(state.user.array.result);
-  return state.user.array.result;
+export const getAllArticles = (state: any) => {
+  return state.article.array.result;
 };
 
-export const {} = userSlice.actions;
+export const {} = articleSlice.actions;
 
-export default userSlice.reducer;
+export default articleSlice.reducer;

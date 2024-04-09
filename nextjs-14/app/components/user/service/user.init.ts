@@ -3,8 +3,10 @@ export const initialState: IUser = {
   username: "",
   password: "",
   name: "",
-  phone_number: "",
+  phoneNumber: "",
   address: "",
   job: "",
+  registerDate: "",
+  modDate: "",
   array: [],
 };

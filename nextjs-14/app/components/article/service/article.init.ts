@@ -3,6 +3,5 @@ export const initialState: IArticle = {
   title: "",
   content: "",
   writer: "",
-  registerDate: "",
   array: [],
 };

@@ -1,4 +1,4 @@
-import { getAllUsers } from "@/redux/features/user-feature/user.slice";
+import { getAllUsers } from "@/app/components/user/service/user.slice";
 import { useSelector } from "react-redux";
 
 export default function UserRows() {
@@ -16,9 +16,12 @@ export default function UserRows() {
     id: user.id,
     username: user.username,
     password: user.password,
-    phoneNumber: user.phone_number,
+    phoneNumber: user.phoneNumber,
+    address: user.address,
     name: user.name,
     job: user.job,
+    registerDate: user.registerDate,
+    modDate: user.modDate,
   }));
 
   return [...(additionalRows || [])];

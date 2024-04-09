@@ -32,7 +32,6 @@ public class UserController {
 
     @GetMapping("/list")
     public ResponseEntity<List<UserDto>> findAll(){
-        log.info("입력받은 정보 : {}" );
         return ResponseEntity.ok(service.findAll());
     }
 
@@ -61,7 +60,7 @@ public class UserController {
 
     @PostMapping("/search")
     public ResponseEntity<List<UserDto>> findUsersByName(@RequestBody UserDto param) {
-        //log.info("입력받은 정보 : {}", name );
+        //log.info("입력받은 정보 : {}", param );
         return ResponseEntity.ok(service.findUsersByName(param.getName()));
     }
 

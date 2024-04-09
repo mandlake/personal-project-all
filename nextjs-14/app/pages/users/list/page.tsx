@@ -1,8 +1,8 @@
 "use client";
 
-import UserColumns from "@/app/components/users/users.column";
-import UserRows from "@/app/components/users/users.rows";
-import { fetchAllUsers } from "@/redux/features/user-feature/user.service";
+import UserColumns from "@/app/components/user/module/users.column";
+import UserRows from "@/app/components/user/module/users.rows";
+import { findAllUsers } from "@/app/components/user/service/user.service";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { NextPage } from "next";
@@ -13,7 +13,7 @@ const UserArticlesPages: NextPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllUsers(1));
+    dispatch(findAllUsers(1));
   }, []);
 
   const columns = UserColumns({} as UserColumns);

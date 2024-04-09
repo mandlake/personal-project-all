@@ -2,12 +2,11 @@ package com.rod.api.article.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.rod.api.article.ArticleRepository;
-import com.rod.api.article.model.Article;
 import com.rod.api.article.model.ArticleDto;
 import com.rod.api.common.component.MessengerVo;
-import com.rod.api.common.component.PageRequestVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +33,7 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public List<ArticleDto> findAll() {
-        return List.of();
+        return repository.findAll().stream().map(i -> entityToDto(Optional.ofNullable(i))).collect(Collectors.toList());
     }
 
     @Override

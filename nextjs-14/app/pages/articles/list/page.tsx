@@ -2,13 +2,13 @@
 
 import { useEffect } from "react";
 import { NextPage } from "next";
-import { fetchAllArticles } from "@/redux/features/article-feature/article.service";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllArticles } from "@/redux/features/article-feature/article.slice";
+import { getAllArticles } from "@/app/components/article/service/article.slice";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import ArticleColumns from "@/app/components/articles/articles.columns";
-import ArticleRows from "@/app/components/articles/articles.rows";
+import ArticleColumns from "@/app/components/article/module/articles.columns";
+import ArticleRows from "@/app/components/article/module/articles.rows";
+import { findAllArticles } from "@/app/components/article/service/article.service";
 
 const ArticlesPage: NextPage = ({ data }: any) => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const ArticlesPage: NextPage = ({ data }: any) => {
   }
 
   useEffect(() => {
-    dispatch(fetchAllArticles(1));
+    dispatch(findAllArticles(1));
   }, []);
 
   const columns = ArticleColumns({} as IArticle);

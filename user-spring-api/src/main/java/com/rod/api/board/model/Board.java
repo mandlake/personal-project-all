@@ -21,10 +21,10 @@ public class Board extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="boardName")
+    @Column(name="board_name")
     private String boardName;
 
-    @Column(name="boardType")
+    @Column(name="board_type")
     private String boardType;
 
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)

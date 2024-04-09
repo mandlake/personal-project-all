@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialState } from "./article.init";
-import { fetchAllArticles } from "./article.service";
+import { findAllBoards } from "./board.service";
+import { initialState } from "./board.init";
 
 const status = {
   pending: "pending",
@@ -21,15 +21,15 @@ const handleRejected = (state: any) => {
   console.log(status.rejected);
 };
 
-export const articleSlice = createSlice({
-  name: "articles",
+export const boardSlice = createSlice({
+  name: "boards",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAllArticles.fulfilled, handleFulfilled)
-      .addCase(fetchAllArticles.pending, handlePending)
-      .addCase(fetchAllArticles.rejected, handleRejected);
+      .addCase(findAllBoards.fulfilled, handleFulfilled)
+      .addCase(findAllBoards.pending, handlePending)
+      .addCase(findAllBoards.rejected, handleRejected);
   },
 });
 
@@ -37,6 +37,6 @@ export const getAllArticles = (state: any) => {
   return state.article.array.result;
 };
 
-export const {} = articleSlice.actions;
+export const {} = boardSlice.actions;
 
-export default articleSlice.reducer;
+export default boardSlice.reducer;

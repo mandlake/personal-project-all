@@ -21,7 +21,7 @@ const pageHref = [
   `${PG.USER}/join`,
   `${PG.USER}/login`,
   `${PG.DEMO}/redux-counter`,
-  `${PG.BOARD}/articles`,
+  `${PG.BOARD}/list`,
   `${PG.USER}/list`,
 ];
 
