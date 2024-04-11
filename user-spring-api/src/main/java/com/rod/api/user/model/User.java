@@ -40,13 +40,13 @@ public class User extends BaseEntity {
     @Column(name = "job")
     private String job;
 
-    @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Article> articles;
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,
                 String name, String phoneNumber,
-                String address, String job) {
+                String address, String job, List<Article> articles) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -54,5 +54,6 @@ public class User extends BaseEntity {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;
+        this.articles = articles;
     }
 }

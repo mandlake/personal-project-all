@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllArticles } from "@/app/components/article/service/article.slice";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import ArticleColumns from "@/app/components/article/module/articles.columns";
 import ArticleRows from "@/app/components/article/module/articles.rows";
 import { findAllArticles } from "@/app/components/article/service/article.service";
+import ArticleColumns from "@/app/components/article/module/articles.columns";
 
 const ArticlesPage: NextPage = ({ data }: any) => {
   const dispatch = useDispatch();
@@ -39,6 +39,7 @@ const ArticlesPage: NextPage = ({ data }: any) => {
           <DataGrid
             rows={rows}
             columns={columns}
+            className="border border-black"
             initialState={{
               pagination: {
                 paginationModel: {

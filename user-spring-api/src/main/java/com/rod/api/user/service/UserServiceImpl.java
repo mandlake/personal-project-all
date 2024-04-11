@@ -20,25 +20,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessengerVo save(UserDto t) {
-        entityToDto(repository.save(dtoToEntity(t)));
-        return new MessengerVo();
+        entityToDto(Optional.of(repository.save(dtoToEntity(t))));
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override
     public MessengerVo deleteById(Long id) {
         repository.deleteById(id);
-        return new MessengerVo();
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override
     public List<UserDto> findAll() {
-        return repository.findAll().stream().map(this::entityToDto).toList();
+        return repository.findAll().stream().map(i -> entityToDto(Optional.ofNullable(i))).toList();
     }
 
     @Override
     public Optional<UserDto> findById(Long id) {
-        User user = repository.findById(id).get();
-        return Optional.of(entityToDto(user));
+        return repository.findById(id).map(i -> entityToDto(Optional.of(i)));
     }
 
     @Override
@@ -53,8 +52,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessengerVo modify(UserDto user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePassword'");
+        // entityToDto(Optional.of(repository.modify(dtoToEntity(user))));
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override

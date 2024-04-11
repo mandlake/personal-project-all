@@ -7,9 +7,9 @@ import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { findAllBoards } from "@/app/components/board/service/board.service";
 import { getAllBoards } from "@/app/components/board/service/board.slice";
-import BoardColumns from "@/app/components/board/module/boards.columns";
 import { IBoard } from "@/app/components/board/model/board";
 import BoardRows from "@/app/components/board/module/boards.rows";
+import BoardColumns from "@/app/components/board/module/boards.columns";
 
 const ArticlesPage: NextPage = ({ data }: any) => {
   const dispatch = useDispatch();

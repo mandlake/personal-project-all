@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.rod.api.article.ArticleRepository;
+import com.rod.api.article.model.Article;
 import com.rod.api.article.model.ArticleDto;
 import com.rod.api.common.component.MessengerVo;
 import lombok.RequiredArgsConstructor;
@@ -17,18 +18,26 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public MessengerVo save(ArticleDto t) {
-        entityToDto(Optional.of(repository.save(dtoToEntity(t))));
-        return new MessengerVo();
+        repository.save(dtoToEntity(t));
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override
     public MessengerVo deleteById(Long id) {
-        return null;
+        repository.deleteById(id);
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override
     public MessengerVo modify(ArticleDto articleDto) {
-        return null;
+        MessengerVo messengerVo;
+        if(repository.existsById(dtoToEntity(articleDto).getId())){
+            repository.save(dtoToEntity(articleDto));
+            messengerVo = MessengerVo.builder().message("True").build();
+        } else {
+            messengerVo = MessengerVo.builder().message("False").build();
+        }
+        return messengerVo;
     }
 
     @Override
@@ -38,7 +47,7 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public Optional<ArticleDto> findById(Long id) {
-        return Optional.empty();
+        return repository.findById(id).map(i -> entityToDto(Optional.of(i)));
     }
 
     @Override

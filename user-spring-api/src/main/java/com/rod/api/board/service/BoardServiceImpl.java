@@ -26,7 +26,7 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public MessengerVo deleteById(Long id) {
         repository.deleteById(id);
-        return new MessengerVo();
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override

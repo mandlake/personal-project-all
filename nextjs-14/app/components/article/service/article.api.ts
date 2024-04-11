@@ -13,3 +13,15 @@ export const findAllArticlesAPI = async (page: number) => {
     return error;
   }
 };
+
+export const findArticleByIdAPI = async (id: number) => {
+  try {
+    const response = await instance.get("/articles/detail", {
+      params: { id },
+    });
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

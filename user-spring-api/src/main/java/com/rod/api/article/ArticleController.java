@@ -27,31 +27,30 @@ public class ArticleController {
 
     @SuppressWarnings("static-access")
     @PostMapping("/save")
-    public ResponseEntity<MessengerVo> save(ArticleDto dto) {
+    public ResponseEntity<MessengerVo> save(@RequestBody ArticleDto dto) {
         log.info("입력받은 정보 : {}", dto );
         return ResponseEntity.ok(service.save(dto));
     }
 
     @GetMapping("/list")
     public ResponseEntity<List<ArticleDto>> findAll() {
-        log.info("입력받은 정보 : {}");
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("/detail")
-    public ResponseEntity<Optional<ArticleDto>> findById(Long id) {
+    public ResponseEntity<Optional<ArticleDto>> findById(@RequestParam Long id) {
         log.info("입력받은 정보 : {}", id );
         return ResponseEntity.ok(service.findById(id));
     }
 
     @PutMapping("/modify")
-    public ResponseEntity<MessengerVo> modify(@RequestBody ArticleDto param) {
-        log.info("입력받은 정보 : {}", param );
-        return ResponseEntity.ok(service.modify(param));
+    public ResponseEntity<MessengerVo> modify(@RequestBody ArticleDto dto) {
+        log.info("입력받은 정보 : {}", dto );
+        return ResponseEntity.ok(service.modify(dto));
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<MessengerVo> deleteById(@PathVariable Long id) {
+    public ResponseEntity<MessengerVo> deleteById(@RequestParam Long id) {
         log.info("입력받은 정보 : {}", id);
         return ResponseEntity.ok(service.deleteById(id));
     }

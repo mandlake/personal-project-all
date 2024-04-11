@@ -9,7 +9,6 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @Entity(name = "articles")
 @Getter
 @ToString(exclude = {"id", "user"})
@@ -34,14 +33,12 @@ public class Article extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "writer")
-    private String writer;
-
     @Builder(builderMethodName = "builder")
-    public Article(Long id, String title, String content) {
+    public Article(Long id, String title, String content, Board board, User user) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.writer = user.getName();
+        this.board = board;
+        this.user = user;
     }
 }

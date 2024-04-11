@@ -24,10 +24,12 @@ public interface UserService  extends CommandService<UserDto>, QueryService<User
                 .phoneNumber(dto.getPhoneNumber())
                 .address(dto.getAddress())
                 .job(dto.getJob())
+                .articles(dto.getArticles())
                 .build();
     }
 
-    default UserDto entityToDto(User user){
+    default UserDto entityToDto(Optional<User> optional) {
+        User user = optional.get();
         return UserDto.builder()
                 .id(user.getId())
                 .username(user.getUsername())
@@ -36,12 +38,8 @@ public interface UserService  extends CommandService<UserDto>, QueryService<User
                 .phoneNumber(user.getPhoneNumber())
                 .address(user.getAddress())
                 .job(user.getJob())
+                .articles(user.getArticles())
                 .build();
     }
     MessengerVo login(UserDto param);
-
-
-    // default UserDto entityToDto(Optional<User> optional){
-    //     return UserDto.builder().build();
-    // }
 }

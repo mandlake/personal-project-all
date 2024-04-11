@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findAllBoards } from "./board.service";
+import { findAllBoards, findBoardById } from "./board.service";
 import { initialState } from "./board.init";
 
 const status = {
@@ -8,35 +8,23 @@ const status = {
   rejected: "rejected",
 };
 
-const handleFulfilled = (state: any, { payload }: any) => {
-  state.array = payload;
-  console.log(status.fulfilled);
-};
-
-const handlePending = (state: any) => {
-  console.log(status.pending);
-};
-
-const handleRejected = (state: any) => {
-  console.log(status.rejected);
-};
-
 export const boardSlice = createSlice({
   name: "boards",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(findAllBoards.fulfilled, handleFulfilled)
-      .addCase(findAllBoards.pending, handlePending)
-      .addCase(findAllBoards.rejected, handleRejected);
+      .addCase(findAllBoards.fulfilled, (state: any, { payload }: any) => {
+        state.array = payload;
+      })
+      .addCase(findBoardById.fulfilled, (state: any, { payload }: any) => {
+        state.array = payload;
+      });
   },
 });
 
-export const getAllBoards = (state: any) => {
-  console.log(state.board.array);
-  return state.board.array;
-};
+export const getAllBoards = (state: any) => state.board.array;
+export const getBoardById = (state: any) => state.board.array;
 
 export const {} = boardSlice.actions;
 

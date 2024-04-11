@@ -1,4 +1,7 @@
+import { PG } from "@/redux/common/enums/PG";
+import { Typography } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
+import Link from "next/link";
 
 export default function UserColumns(prop: UserColumns): GridColDef[] {
   return [
@@ -9,6 +12,7 @@ export default function UserColumns(prop: UserColumns): GridColDef[] {
       sortable: false,
       field: "id",
       headerName: "ID",
+      renderCell: ({ row }) => <Typography>{row.id}</Typography>,
     },
     {
       flex: 0.04,
@@ -17,6 +21,17 @@ export default function UserColumns(prop: UserColumns): GridColDef[] {
       sortable: false,
       field: "username",
       headerName: "Username",
+      renderCell: ({ row }) => (
+        <Typography>
+          <Link
+            href={`${PG.USER}/detail/${row.id}`}
+            passHref
+            className="underline"
+          >
+            {row.username}
+          </Link>
+        </Typography>
+      ),
     },
     {
       flex: 0.04,

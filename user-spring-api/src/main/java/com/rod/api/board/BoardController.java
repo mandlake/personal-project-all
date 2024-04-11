@@ -38,7 +38,7 @@ public class BoardController {
     }
 
     @GetMapping("/detail")
-    public ResponseEntity<Optional<BoardDto>> findById(Long id) {
+    public ResponseEntity<Optional<BoardDto>> findById(@RequestParam Long id) {
         log.info("입력받은 정보 : {}", id );
         return ResponseEntity.ok(service.findById(id));
     }
@@ -50,7 +50,7 @@ public class BoardController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<MessengerVo> deleteById(@PathVariable Long id) {
+    public ResponseEntity<MessengerVo> deleteById(@RequestParam Long id) {
         log.info("입력받은 정보 : {}", id );
         return ResponseEntity.ok(service.deleteById(id));
     }
