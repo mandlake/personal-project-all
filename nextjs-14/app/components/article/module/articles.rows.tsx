@@ -7,7 +7,6 @@ export default function ArticleRows() {
     id: article.id,
     title: article.title,
     content: article.content,
-    writer: article.writer,
   }));
 
   return [...(additionalRows || [])];

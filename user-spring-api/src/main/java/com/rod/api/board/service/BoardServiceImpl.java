@@ -31,7 +31,8 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public MessengerVo modify(BoardDto boardDto) {
-        return null;
+        repository.save(dtoToEntity(boardDto));
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override

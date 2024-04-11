@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -52,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessengerVo modify(UserDto user) {
-        // entityToDto(Optional.of(repository.modify(dtoToEntity(user))));
+        repository.save(dtoToEntity(user));
         return MessengerVo.builder().message("True").build();
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 @Entity(name = "boards")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString(exclude = {"id"})
+@ToString(exclude = {"id", "articles"})
 @Table(name = "boards")
 public class Board extends BaseEntity {
 
@@ -35,6 +35,5 @@ public class Board extends BaseEntity {
         this.id = id;
         this.boardName = boardName;
         this.boardType = boardType;
-        this.articles = articles;
     }
 }

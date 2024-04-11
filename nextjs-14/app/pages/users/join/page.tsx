@@ -29,7 +29,7 @@ const JoinPage: NextPage = () => {
   const address = useInput("");
   const job = useInput("");
 
-  const url = `${API.SERVER}/users`;
+  const url = `${API.SERVER}/users/save`;
   const data = {
     param: {
       username: id.value,

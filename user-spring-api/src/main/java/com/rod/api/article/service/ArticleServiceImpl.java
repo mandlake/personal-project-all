@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.rod.api.article.ArticleRepository;
-import com.rod.api.article.model.Article;
 import com.rod.api.article.model.ArticleDto;
 import com.rod.api.common.component.MessengerVo;
 import lombok.RequiredArgsConstructor;
@@ -30,14 +29,8 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public MessengerVo modify(ArticleDto articleDto) {
-        MessengerVo messengerVo;
-        if(repository.existsById(dtoToEntity(articleDto).getId())){
-            repository.save(dtoToEntity(articleDto));
-            messengerVo = MessengerVo.builder().message("True").build();
-        } else {
-            messengerVo = MessengerVo.builder().message("False").build();
-        }
-        return messengerVo;
+        repository.save(dtoToEntity(articleDto));
+        return MessengerVo.builder().message("True").build();
     }
 
     @Override

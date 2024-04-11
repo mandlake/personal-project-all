@@ -4,7 +4,7 @@ import { getAllBoards } from "../service/board.slice";
 
 export default function BoardRows() {
   const allBoards: [] = useSelector(getAllBoards);
-  const additionalRows = allBoards?.map((boards: IBoard) => ({
+  const additionalRows = allBoards.map((boards: IBoard) => ({
     id: boards.id,
     boardName: boards.boardName,
     boardType: boards.boardType,

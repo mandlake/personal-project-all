@@ -13,8 +13,6 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
                 .id(dto.getId())
                 .content(dto.getContent())
                 .title(dto.getTitle())
-                .user(dto.getUser_id())
-                .board(dto.getBoard_id())
                 .build();
     }
 
@@ -24,8 +22,6 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
                 .id(a.getId())
                 .content(a.getContent())
                 .title(a.getTitle())
-                .board_id(a.getBoard())
-                .user_id(a.getUser())
                 .build();
     }
 }

@@ -43,7 +43,7 @@ public class BoardController {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public ResponseEntity<MessengerVo> modify(@RequestBody BoardDto param) {
         log.info("입력받은 정보 : {}", param );
         return ResponseEntity.ok(service.modify(param));

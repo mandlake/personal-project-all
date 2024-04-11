@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
-@ToString(exclude = {"id"})
+@ToString(exclude = {"id", "articles"})
 @Table(name = "users")
 public class User extends BaseEntity {
 
@@ -46,7 +46,7 @@ public class User extends BaseEntity {
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password,
                 String name, String phoneNumber,
-                String address, String job, List<Article> articles) {
+                String address, String job) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -54,6 +54,5 @@ public class User extends BaseEntity {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;
-        this.articles = articles;
     }
 }

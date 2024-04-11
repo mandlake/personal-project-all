@@ -25,3 +25,25 @@ export const findUserByIdAPI = async (id: number) => {
     return error;
   }
 };
+
+export const modifiedUserAPI = async (all: IUser) => {
+  try {
+    const response = await instance.post("/users/modify", all);
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteUserAPI = async (id: number) => {
+  try {
+    const response = await instance.delete("/users/delete", {
+      params: { id },
+    });
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

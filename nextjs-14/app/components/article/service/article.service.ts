@@ -1,5 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { findAllArticlesAPI, findArticleByIdAPI } from "./article.api";
+import {
+  deleteArticleAPI,
+  findAllArticlesAPI,
+  findArticleByIdAPI,
+  modifiedArticleAPI,
+} from "./article.api";
 
 export const findAllArticles: any = createAsyncThunk(
   "article/findAllArticles",
@@ -14,5 +19,19 @@ export const findArticleById: any = createAsyncThunk(
   "article/findArticleById",
   async (id: number) => {
     return await findArticleByIdAPI(id);
+  }
+);
+
+export const modifiedArticle: any = createAsyncThunk(
+  "article/modifiedArticle",
+  async (all: IArticle) => {
+    return await modifiedArticleAPI(all);
+  }
+);
+
+export const deleteArticle: any = createAsyncThunk(
+  "article/deleteArticle",
+  async (id: number) => {
+    return await deleteArticleAPI(id);
   }
 );

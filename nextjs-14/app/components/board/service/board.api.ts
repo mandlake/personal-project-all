@@ -1,4 +1,5 @@
 import { instance } from "@/redux/common/configs/axios-config";
+import { IBoard } from "../model/board";
 
 export const findAllBoardsAPI = async (page: number) => {
   try {
@@ -19,6 +20,28 @@ export const findBoardByIdAPI = async (id: number) => {
     const response = await instance.get("/boards/detail", {
       params: { id },
     });
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const modifiedBoardAPI = async (all: IBoard) => {
+  try {
+    const response = await instance.post("/boards/modify", all);
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteBoardAPI = async (id: number) => {
+  try {
+    const response = await instance.delete("/boards/delete", {
+      params: { id },
+    });
+    console.log("success");
     return response.data;
   } catch (error) {
     return error;

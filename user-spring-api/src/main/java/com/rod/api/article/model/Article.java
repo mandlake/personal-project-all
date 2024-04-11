@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j2;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name = "articles")
 @Getter
-@ToString(exclude = {"id", "user"})
+@ToString(exclude = {"id", "user", "board"})
 public class Article extends BaseEntity {
 
     @Id
@@ -38,7 +38,5 @@ public class Article extends BaseEntity {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.board = board;
-        this.user = user;
     }
 }

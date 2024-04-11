@@ -25,3 +25,25 @@ export const findArticleByIdAPI = async (id: number) => {
     return error;
   }
 };
+
+export const modifiedArticleAPI = async (all: IArticle) => {
+  try {
+    const response = await instance.post("/articles/modify", all);
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteArticleAPI = async (id: number) => {
+  try {
+    const response = await instance.delete("/articles/delete", {
+      params: { id },
+    });
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

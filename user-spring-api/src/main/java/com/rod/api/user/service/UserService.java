@@ -24,7 +24,6 @@ public interface UserService  extends CommandService<UserDto>, QueryService<User
                 .phoneNumber(dto.getPhoneNumber())
                 .address(dto.getAddress())
                 .job(dto.getJob())
-                .articles(dto.getArticles())
                 .build();
     }
 
@@ -38,7 +37,6 @@ public interface UserService  extends CommandService<UserDto>, QueryService<User
                 .phoneNumber(user.getPhoneNumber())
                 .address(user.getAddress())
                 .job(user.getJob())
-                .articles(user.getArticles())
                 .build();
     }
     MessengerVo login(UserDto param);

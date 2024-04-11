@@ -1,15 +1,38 @@
 "use client";
 
-import { findArticleById } from "@/app/components/article/service/article.service";
+import {
+  deleteArticle,
+  findArticleById,
+  modifiedArticle,
+} from "@/app/components/article/service/article.service";
 import { getArticleById } from "@/app/components/article/service/article.slice";
-import { Button, Typography } from "@mui/material";
-import { useEffect } from "react";
+import { Button, TextField } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 const IdPage = (props: any) => {
   const dispatch = useDispatch();
   const article = useSelector(getArticleById);
+  const [modified, setModified] = useState({
+    id: article.id,
+    title: article.title,
+    content: article.content,
+  });
+
+  const onModified = () => {
+    dispatch(
+      modifiedArticle({
+        ...article,
+        title: modified.title || article.title,
+        content: modified.content || article.content,
+      })
+    );
+  };
+
+  const onDeleted = () => {
+    dispatch(deleteArticle(props.params.id));
+  };
 
   useEffect(() => {
     dispatch(findArticleById(props.params.id));
@@ -22,42 +45,43 @@ const IdPage = (props: any) => {
 
         <div className="flex gap-2 justify-center items-center">
           <span>ID :</span>
-          <Typography textAlign="center" sx={{ fontSize: "3rm" }}>
-            {article.id}
-          </Typography>
+          <TextField
+            defaultValue={article.id}
+            variant="outlined"
+            fullWidth
+            onChange={(e: any) =>
+              setModified({ ...modified, id: e.target.value })
+            }
+          />
         </div>
 
         <div className="flex gap-2 justify-center items-center">
           <span>게시판 제목 :</span>
-          <Typography textAlign="center" sx={{ fontSize: "3rm" }}>
-            {article.title}
-          </Typography>
+          <TextField
+            defaultValue={article.title}
+            variant="outlined"
+            fullWidth
+            onChange={(e: any) =>
+              setModified({ ...modified, title: e.target.value })
+            }
+          />
         </div>
 
         <div className="flex gap-2 justify-center items-center">
           <span>게시판 내용 :</span>
-          <Typography textAlign="center" sx={{ fontSize: "3rm" }}>
-            {article.content}
-          </Typography>
+          <TextField
+            defaultValue={article.content}
+            variant="outlined"
+            fullWidth
+            onChange={(e: any) =>
+              setModified({ ...modified, content: e.target.value })
+            }
+          />
         </div>
 
         <div className="flex gap-2 justify-center items-center">
-          <span>등록일 :</span>
-          <Typography textAlign="center" sx={{ fontSize: "3rm" }}>
-            {article.registerDate}
-          </Typography>
-        </div>
-
-        <div className="flex gap-2 justify-center items-center">
-          <span>수정일 :</span>
-          <Typography textAlign="center" sx={{ fontSize: "3rm" }}>
-            {article.modDate}
-          </Typography>
-        </div>
-
-        <div className="flex gap-2 justify-center items-center">
-          <Button>수정하기</Button>
-          <Button>삭제하기</Button>
+          <Button onClick={onModified}>수정하기</Button>
+          <Button onClick={onDeleted}>삭제하기</Button>
         </div>
       </div>
     </>
