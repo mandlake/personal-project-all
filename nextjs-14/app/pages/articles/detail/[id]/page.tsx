@@ -40,48 +40,48 @@ const IdPage = (props: any) => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center w-screen mt-10">
-        <h1>{props.params.id}번 페이지입니다.</h1>
+      <div className="flex flex-col justify-start items-center w-screen mt-10">
+        <div className="flex flex-col justify-start items-center w-[200px]">
+          <div className="justify-center items-center">
+            <span>ID</span>
+            <TextField
+              defaultValue={article.id}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, id: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>ID :</span>
-          <TextField
-            defaultValue={article.id}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, id: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center w-200">
+            <span>게시판 제목</span>
+            <TextField
+              defaultValue={article.title}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, title: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>게시판 제목 :</span>
-          <TextField
-            defaultValue={article.title}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, title: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>게시판 내용</span>
+            <TextField
+              defaultValue={article.content}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, content: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>게시판 내용 :</span>
-          <TextField
-            defaultValue={article.content}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, content: e.target.value })
-            }
-          />
-        </div>
-
-        <div className="flex gap-2 justify-center items-center">
-          <Button onClick={onModified}>수정하기</Button>
-          <Button onClick={onDeleted}>삭제하기</Button>
+          <div className="flex gap-2 justify-center items-center">
+            <Button onClick={onModified}>수정하기</Button>
+            <Button onClick={onDeleted}>삭제하기</Button>
+          </div>
         </div>
       </div>
     </>

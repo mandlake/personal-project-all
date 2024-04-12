@@ -41,45 +41,47 @@ const IdPage = (props: any) => {
   return (
     <>
       <div className="flex flex-col justify-center items-center w-screen mt-10">
-        <div className="flex gap-2 justify-center items-center">
-          <span>ID :</span>
-          <TextField
-            defaultValue={board.id}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, id: e.target.value })
-            }
-          />
-        </div>
+        <div className="flex flex-col justify-start items-center w-[200px]">
+          <div className="justify-center items-center">
+            <span>ID</span>
+            <TextField
+              defaultValue={board.id}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, id: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>게시판 이름 :</span>
-          <TextField
-            defaultValue={board.boardName}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, boardName: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>게시판 이름</span>
+            <TextField
+              defaultValue={board.boardName}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, boardName: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>게시판 타입 :</span>
-          <TextField
-            defaultValue={board.boardType}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, boardType: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>게시판 타입</span>
+            <TextField
+              defaultValue={board.boardType}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, boardType: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <Button onClick={onModified}>수정하기</Button>
-          <Button onClick={onDeleted}>삭제하기</Button>
+          <div className="flex gap-2 justify-center items-center">
+            <Button onClick={onModified}>수정하기</Button>
+            <Button onClick={onDeleted}>삭제하기</Button>
+          </div>
         </div>
       </div>
     </>

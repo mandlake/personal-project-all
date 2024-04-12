@@ -49,94 +49,95 @@ const IdPage = (props: any) => {
   return (
     <>
       <div className="flex flex-col justify-center items-center w-screen mt-10">
-        <h1 className="text-[20px]">{props.params.id}님의 개인 페이지</h1>
-        <div className="flex gap-2 justify-between items-center">
-          <span>ID :</span>
-          <TextField
-            defaultValue={user.id}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, id: e.target.value })
-            }
-          />
-        </div>
+        <div className="flex flex-col justify-start items-center w-[200px]">
+          <div className="justify-center items-center">
+            <span>ID</span>
+            <TextField
+              defaultValue={user.id}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, id: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>아이디 :</span>
-          <TextField
-            defaultValue={user.username}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, username: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>아이디</span>
+            <TextField
+              defaultValue={user.username}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, username: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>비밀번호 :</span>
-          <TextField
-            defaultValue={user.password}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, password: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>비밀번호</span>
+            <TextField
+              defaultValue={user.password}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, password: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>name :</span>
-          <TextField
-            defaultValue={user.name}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, name: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>name</span>
+            <TextField
+              defaultValue={user.name}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, name: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>phoneNumber :</span>
-          <TextField
-            defaultValue={user.phoneNumber}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, phoneNumber: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>phoneNumber</span>
+            <TextField
+              defaultValue={user.phoneNumber}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, phoneNumber: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>address :</span>
-          <TextField
-            defaultValue={user.address}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, address: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>address</span>
+            <TextField
+              defaultValue={user.address}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, address: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <span>job :</span>
-          <TextField
-            defaultValue={user.job}
-            variant="outlined"
-            fullWidth
-            onChange={(e: any) =>
-              setModified({ ...modified, job: e.target.value })
-            }
-          />
-        </div>
+          <div className="justify-center items-center">
+            <span>job</span>
+            <TextField
+              defaultValue={user.job}
+              variant="standard"
+              fullWidth
+              onChange={(e: any) =>
+                setModified({ ...modified, job: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="flex gap-2 justify-center items-center">
-          <Button onClick={onModified}>수정하기</Button>
-          <Button onClick={onDeleted}>삭제하기</Button>
+          <div className="flex gap-2 justify-center items-center">
+            <Button onClick={onModified}>수정하기</Button>
+            <Button onClick={onDeleted}>삭제하기</Button>
+          </div>
         </div>
       </div>
     </>
