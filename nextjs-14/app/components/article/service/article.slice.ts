@@ -7,12 +7,6 @@ import {
   modifiedArticle,
 } from "./article.service";
 
-const status = {
-  pending: "pending",
-  fulfilled: "fulfilled",
-  rejected: "rejected",
-};
-
 export const articleSlice = createSlice({
   name: "articles",
   initialState,

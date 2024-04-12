@@ -40,7 +40,7 @@ public class User extends BaseEntity {
     @Column(name = "job")
     private String job;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Article> articles;
 
     @Builder(builderMethodName = "builder")

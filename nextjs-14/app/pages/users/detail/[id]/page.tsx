@@ -6,7 +6,7 @@ import {
   modifiedUser,
 } from "@/app/components/user/service/user.service";
 import { getUserById } from "@/app/components/user/service/user.slice";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

@@ -38,5 +38,7 @@ public class Article extends BaseEntity {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.board = board;
+        this.user = user;
     }
 }

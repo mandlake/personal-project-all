@@ -22,6 +22,10 @@ spring:
         format_sql: true
     show-sql: true
     defer-datasource-initialization: true
+    open-in-view: false
+  output:
+    ansi:
+      enabled: always
 logging:
   level:
     org:

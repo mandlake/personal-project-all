@@ -7,12 +7,6 @@ import {
 } from "./board.service";
 import { initialState } from "./board.init";
 
-const status = {
-  pending: "pending",
-  fulfilled: "fulfilled",
-  rejected: "rejected",
-};
-
 export const boardSlice = createSlice({
   name: "boards",
   initialState,
