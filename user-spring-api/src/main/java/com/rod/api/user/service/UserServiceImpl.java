@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessengerVo save(UserDto t) {
-        entityToDto(Optional.of(repository.save(dtoToEntity(t))));
+        User ent = repository.save(dtoToEntity(t));
         return MessengerVo.builder().message("True").build();
     }
 

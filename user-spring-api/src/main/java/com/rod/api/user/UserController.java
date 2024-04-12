@@ -60,7 +60,7 @@ public class UserController {
 
     @PostMapping("/search")
     public ResponseEntity<List<UserDto>> findUsersByName(@RequestBody UserDto param) {
-        //log.info("입력받은 정보 : {}", param );
+        log.info("입력받은 정보 : {}", param );
         return ResponseEntity.ok(service.findUsersByName(param.getName()));
     }
 

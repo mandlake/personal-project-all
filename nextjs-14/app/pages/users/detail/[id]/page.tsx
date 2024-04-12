@@ -1,9 +1,9 @@
 "use client";
 
 import {
-  deleteUser,
+  deleteUserById,
   findUserById,
-  modifiedUser,
+  modifiedUserById,
 } from "@/app/components/user/service/user.service";
 import { getUserById } from "@/app/components/user/service/user.slice";
 import { Button, TextField } from "@mui/material";
@@ -26,7 +26,7 @@ const IdPage = (props: any) => {
 
   const onModified = () => {
     dispatch(
-      modifiedUser({
+      modifiedUserById({
         ...user,
         username: modified.username || user.username,
         password: modified.password || user.password,
@@ -39,7 +39,7 @@ const IdPage = (props: any) => {
   };
 
   const onDeleted = () => {
-    dispatch(deleteUser(props.params.id));
+    dispatch(deleteUserById(props.params.id));
   };
 
   useEffect(() => {

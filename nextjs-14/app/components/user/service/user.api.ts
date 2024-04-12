@@ -26,7 +26,7 @@ export const findUserByIdAPI = async (id: number) => {
   }
 };
 
-export const modifiedUserAPI = async (all: IUser) => {
+export const modifiedUserByIdAPI = async (all: IUser) => {
   try {
     const response = await instance.post("/users/modify", all);
     console.log("success");
@@ -36,7 +36,7 @@ export const modifiedUserAPI = async (all: IUser) => {
   }
 };
 
-export const deleteUserAPI = async (id: number) => {
+export const deleteUserByIdAPI = async (id: number) => {
   try {
     const response = await instance.delete("/users/delete", {
       params: { id },

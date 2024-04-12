@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./user.init";
 import {
-  deleteUser,
+  deleteUserById,
   findAllUsers,
   findUserById,
-  modifiedUser,
+  modifiedUserById,
 } from "./user.service";
 
 export const userSlice = createSlice({
@@ -19,11 +19,11 @@ export const userSlice = createSlice({
       .addCase(findUserById.fulfilled, (state: any, { payload }: any) => {
         state.array = payload;
       })
-      .addCase(modifiedUser.fulfilled, (state: any, { payload }: any) => {
+      .addCase(modifiedUserById.fulfilled, (state: any, { payload }: any) => {
         console.log("modified");
         state.array = payload;
       })
-      .addCase(deleteUser.fulfilled, (state: any, { payload }: any) => {
+      .addCase(deleteUserById.fulfilled, (state: any, { payload }: any) => {
         state.array = payload;
       });
   },
@@ -31,8 +31,8 @@ export const userSlice = createSlice({
 
 export const getAllUsers = (state: any) => state.user.array;
 export const getUserById = (state: any) => state.user.array;
-export const getModifiedUser = (state: any) => state.user.array;
-export const getDeleteUser = (state: any) => state.user.array;
+export const getModifiedUserById = (state: any) => state.user.array;
+export const getDeleteUserById = (state: any) => state.user.array;
 
 export const {} = userSlice.actions;
 
