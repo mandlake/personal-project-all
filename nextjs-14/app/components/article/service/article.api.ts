@@ -28,7 +28,7 @@ export const findArticleByIdAPI = async (id: number) => {
 
 export const modifiedArticleAPI = async (all: IArticle) => {
   try {
-    const response = await instance.post("/articles/modify", all);
+    const response = await instance.put("/articles/modify", all);
     console.log("success");
     return response.data;
   } catch (error) {

@@ -41,7 +41,7 @@ public class UserController {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @PostMapping("/modify")
+    @PutMapping("/modify")
     public ResponseEntity<MessengerVo> modify(@RequestBody UserDto param) {
         log.info("입력받은 정보 : {}", param );
         return ResponseEntity.ok(service.modify(param));

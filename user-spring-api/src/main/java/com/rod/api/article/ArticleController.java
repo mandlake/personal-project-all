@@ -43,7 +43,7 @@ public class ArticleController {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @PostMapping("/modify")
+    @PutMapping("/modify")
     public ResponseEntity<MessengerVo> modify(@RequestBody ArticleDto dto) {
         log.info("입력받은 정보 : {}", dto );
         return ResponseEntity.ok(service.modify(dto));

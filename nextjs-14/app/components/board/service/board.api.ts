@@ -28,7 +28,7 @@ export const findBoardByIdAPI = async (id: number) => {
 
 export const modifiedBoardAPI = async (all: IBoard) => {
   try {
-    const response = await instance.post("/boards/modify", all);
+    const response = await instance.put("/boards/modify", all);
     console.log("success");
     return response.data;
   } catch (error) {

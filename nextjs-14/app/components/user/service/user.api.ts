@@ -28,7 +28,7 @@ export const findUserByIdAPI = async (id: number) => {
 
 export const modifiedUserByIdAPI = async (all: IUser) => {
   try {
-    const response = await instance.post("/users/modify", all);
+    const response = await instance.put("/users/modify", all);
     console.log("success");
     return response.data;
   } catch (error) {

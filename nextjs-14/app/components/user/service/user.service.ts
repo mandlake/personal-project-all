@@ -23,7 +23,7 @@ export const findUserById: any = createAsyncThunk(
 );
 
 export const modifiedUserById: any = createAsyncThunk(
-  "user/modifiedUser",
+  "user/modifiedUserById",
   async (all: IUser) => {
     return await modifiedUserByIdAPI(all);
   }
