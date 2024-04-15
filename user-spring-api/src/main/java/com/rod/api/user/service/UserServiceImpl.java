@@ -57,14 +57,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> findUsersByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsersByName'");
+        return repository.findUsersByName(name).stream().map(i -> entityToDto(Optional.ofNullable(i))).toList();
     }
 
     @Override
     public List<UserDto> findUsersByJob(String job) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsersByJob'");
+        return repository.findUsersByJob(job).stream().map(i -> entityToDto(Optional.ofNullable(i))).toList();
     }
 
 
@@ -75,7 +73,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessengerVo login(UserDto param) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'login'");
+        return MessengerVo.builder()
+                .message(repository
+                        .findByUsername(param.getUsername())
+                        .map(value -> value
+                                .getPassword()
+                                .equals(param
+                                        .getPassword()) ? "True" : "False")
+                        .orElse("Not President"))
+                .build();
     }
 }

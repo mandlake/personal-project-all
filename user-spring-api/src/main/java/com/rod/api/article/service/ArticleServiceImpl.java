@@ -45,11 +45,11 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public long count() {
-        return 0;
+        return repository.count();
     }
 
     @Override
     public boolean existsById(Long id) {
-        return false;
+        return repository.existsById(id);
     }
 }
