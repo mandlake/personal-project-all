@@ -8,5 +8,7 @@ interface IUser {
   job?: string;
   registerDate?: string;
   modDate?: string;
-  array: [];
+  array?: [];
+  json?: IUser;
+  login?: string;
 }

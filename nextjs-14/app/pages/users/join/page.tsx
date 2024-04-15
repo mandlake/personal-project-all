@@ -1,170 +1,145 @@
 "use client";
 
 import { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import { API } from "@/redux/common/enums/API";
-import AxiosConfig from "@/redux/common/configs/axios-config";
 import { PG } from "@/redux/common/enums/PG";
 import { NextPage } from "next";
-
-const useInput = (i: any) => {
-  const [value, setValue] = useState("");
-  const onChange = (e: any) => {
-    const {
-      target: { value },
-    } = e;
-    setValue(value);
-  };
-
-  return { value, onChange };
-};
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { joinId } from "@/app/components/user/service/user.service";
 
 const JoinPage: NextPage = () => {
   const router = useRouter();
-  const id = useInput("");
-  const pw = useInput("");
-  const name = useInput("");
-  const phone = useInput("");
-  const address = useInput("");
-  const job = useInput("");
-
-  const url = `${API.SERVER}/users/save`;
-  const data = {
-    param: {
-      username: id.value,
-      password: pw.value,
-      name: name.value,
-      phoneNumber: phone.value,
-      address: address.value,
-      job: job.value,
-    },
-  };
-
-  const handleCheckboxChange = () => {};
-
-  const handleCancle = () => {
-    alert("취소되었습니다.");
-  };
+  const dispatch = useDispatch();
+  const [join, setJoin] = useState({} as IUser);
 
   const handleSubmit = () => {
-    alert(id.value);
-    axios
-      .post(url, data, AxiosConfig())
-      .then((res) => {
-        alert(JSON.stringify(res.data["message"]));
-        router.push(`${PG.USER}/login`);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("An error occurred. Please try again.");
-      });
+    dispatch(joinId({ join }));
+    router.push(`${PG.USER}/login`);
   };
 
   return (
     <>
-      <div className="container">
-        <h1>Sign up</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr />
-
-        <label htmlFor="username">
-          <b>Id</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Enter Id"
-          name="username"
-          onChange={id.onChange}
-          required
-        />
-
-        <label htmlFor="psw">
-          <b>Password</b>
-        </label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          onChange={pw.onChange}
-          required
-        />
-
-        <label htmlFor="name">
-          <b>Name</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Enter Name"
-          name="name"
-          onChange={name.onChange}
-          required
-        />
-
-        <label htmlFor="phone">
-          <b>Phone</b>
-        </label>
-        <input
-          type="phone"
-          placeholder="Enter Phone"
-          name="phone"
-          onChange={phone.onChange}
-          required
-        />
-
-        <label htmlFor="address">
-          <b>Address</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Enter Address"
-          name="address"
-          onChange={address.onChange}
-          required
-        />
-
-        <label htmlFor="job">
-          <b>Job</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Enter Job"
-          name="job"
-          onChange={job.onChange}
-          required
-        />
-
-        <label>
-          <input
-            type="checkbox"
-            checked={true}
-            name="remember"
-            onChange={handleCheckboxChange}
-            style={{ marginBottom: "15px" }}
-          />
-          Remember me
-        </label>
-
-        <p>
-          By creating an account you agree to our{" "}
-          <a href="#" style={{ color: "dodgerblue" }}>
-            Terms & Privacy
-          </a>
-          .
-        </p>
-
-        <div className="clearfix">
-          <button type="button" className="cancelbtn" onClick={handleCancle}>
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="signupbtn bg-green-500"
-            onClick={handleSubmit}
-          >
-            Sign Up
-          </button>
-        </div>
+      <div className="flex flex-col justify-center items-center w-screan max-w-s mt-5">
+        <form className="flex flex-col justify-start items-center bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <h2 className="text-[28px] mb-1">Sign up</h2>
+          <p className="text-xs italic mb-3 text-gray-500">
+            Please fill in this form to create an account.
+          </p>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
+              아이디
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              onChange={(e: any) =>
+                setJoin({ ...join, username: e.target.value })
+              }
+              placeholder="Username"
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
+              비밀 번호
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              onChange={(e: any) =>
+                setJoin({ ...join, password: e.target.value })
+              }
+              placeholder="******************"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="name"
+            >
+              이름
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name"
+              type="text"
+              onChange={(e: any) => setJoin({ ...join, name: e.target.value })}
+              placeholder="Name"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="phone"
+            >
+              전화번호
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="phone"
+              type="text"
+              onChange={(e: any) =>
+                setJoin({ ...join, phoneNumber: e.target.value })
+              }
+              placeholder="Phone"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="address"
+            >
+              주소
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="address"
+              type="text"
+              onChange={(e: any) =>
+                setJoin({ ...join, address: e.target.value })
+              }
+              placeholder="Address"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="job"
+            >
+              직업
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="job"
+              type="text"
+              onChange={(e: any) => setJoin({ ...join, job: e.target.value })}
+              placeholder="Job"
+            />
+          </div>
+          <div className="flex items-center justify-between gap-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+              onClick={handleSubmit}
+            >
+              회원가입
+            </button>
+            <Link
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mb-3"
+              href={`${PG.USER}/login`}
+            >
+              Already Joined?
+            </Link>
+          </div>
+        </form>
       </div>
     </>
   );

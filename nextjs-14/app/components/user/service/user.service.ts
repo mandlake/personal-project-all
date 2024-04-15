@@ -3,6 +3,8 @@ import {
   deleteUserByIdAPI,
   findAllUsersAPI,
   findUserByIdAPI,
+  joinIdAPI,
+  loginIdAPI,
   modifiedUserByIdAPI,
 } from "./user.api";
 
@@ -33,5 +35,19 @@ export const deleteUserById: any = createAsyncThunk(
   "user/deleteUser",
   async (id: number) => {
     return await deleteUserByIdAPI(id);
+  }
+);
+
+export const joinId: any = createAsyncThunk(
+  "user/joinId",
+  async (all: IUser) => {
+    return await joinIdAPI(all);
+  }
+);
+
+export const loginId: any = createAsyncThunk(
+  "user/loginId",
+  async (all: IUser) => {
+    return await loginIdAPI(all);
   }
 );

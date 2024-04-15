@@ -6,12 +6,15 @@ import {
   modifiedUserById,
 } from "@/app/components/user/service/user.service";
 import { getUserById } from "@/app/components/user/service/user.slice";
+import { PG } from "@/redux/common/enums/PG";
 import { Button, TextField } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 const IdPage = (props: any) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const user = useSelector(getUserById);
   const [modified, setModified] = useState({
@@ -36,10 +39,14 @@ const IdPage = (props: any) => {
         job: modified.job || user.job,
       })
     );
+    alert("수정이 완료되었습니다.");
+    router.push(`${PG.USER}/list`);
   };
 
   const onDeleted = () => {
     dispatch(deleteUserById(props.params.id));
+    alert("삭제되었습니다.");
+    router.push(`${PG.USER}/list`);
   };
 
   useEffect(() => {

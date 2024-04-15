@@ -15,18 +15,9 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { PG } from "@/redux/common/enums/PG";
 
-const pages = [
-  "회원가입",
-  "로그인",
-  "카운터",
-  "게시글종류",
-  "게시글목록",
-  "사용자목록",
-];
+const pages = ["카운터", "게시글종류", "게시글목록", "사용자목록"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const pageHref = [
-  `${PG.USER}/join`,
-  `${PG.USER}/login`,
   `${PG.DEMO}/redux-counter`,
   `${PG.BOARD}/list`,
   `${PG.ARTICLE}/list`,

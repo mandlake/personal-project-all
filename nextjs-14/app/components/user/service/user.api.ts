@@ -47,3 +47,23 @@ export const deleteUserByIdAPI = async (id: number) => {
     return error;
   }
 };
+
+export const joinIdAPI = async (all: IUser) => {
+  try {
+    const response = await instance.post("/users/save", all);
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const loginIdAPI = async (user: IUser) => {
+  try {
+    const response = await instance.post("/users/login", user);
+    console.log("success");
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

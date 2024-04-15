@@ -6,12 +6,15 @@ import {
   modifiedArticle,
 } from "@/app/components/article/service/article.service";
 import { getArticleById } from "@/app/components/article/service/article.slice";
+import { PG } from "@/redux/common/enums/PG";
 import { Button, TextField } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 const IdPage = (props: any) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const article = useSelector(getArticleById);
   const [modified, setModified] = useState({
@@ -28,10 +31,14 @@ const IdPage = (props: any) => {
         content: modified.content || article.content,
       })
     );
+    alert("수정이 완료되었습니다.");
+    router.push(`${PG.ARTICLE}/list`);
   };
 
   const onDeleted = () => {
     dispatch(deleteArticle(props.params.id));
+    alert("삭제되었습니다.");
+    router.push(`${PG.USER}/list`);
   };
 
   useEffect(() => {

@@ -31,7 +31,7 @@ const ArticlesPage: NextPage = ({ data }: any) => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center w-screen mt-10">
+      <div className="flex flex-col justify-center items-center mt-10">
         <h1 className="font-semibold text-stone-600 text-[30px]">
           게시글 종류
         </h1>

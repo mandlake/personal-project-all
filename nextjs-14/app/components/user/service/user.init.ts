@@ -9,4 +9,5 @@ export const initialState: IUser = {
   registerDate: "",
   modDate: "",
   array: [],
+  login: "",
 };
